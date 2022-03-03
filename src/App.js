@@ -1,15 +1,26 @@
-import "./App.css";
-import React from "react";
+import "./sass/global.scss";
+import React, { useState, useEffect } from "react";
+import sanityClient from "./Client";
 
 const App = () => {
-  const name = "Jakub Serweta";
+  const [siteData, setData] = useState(null);
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "hero"][0]{
+    header,
+    image,
+    profession
+  }`
+      )
+      .then((data) => setData(data))
+      .catch(console.error);
+  }, []);
 
   return (
     <div className="App">
-      <header className="App-header">
-        Hello World! <br />
-        Hi {name}
-      </header>
+      <h2>{siteData && siteData.header}</h2>
     </div>
   );
 };

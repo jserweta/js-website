@@ -1,23 +1,28 @@
 export default {
-  name: "hero",
-  title: "Hero",
-  type: "document",
+  name: 'hero',
+  title: 'Hero',
+  type: 'document',
   fields: [
     {
-      name: "title",
-      type: "string",
+      title: 'Main image',
+      name: 'image',
+      type: 'image'
     },
     {
-      name: "date",
-      type: "datetime",
+      title: 'Main header',
+      name: 'header',
+      type: 'string'
     },
     {
-      name: "place",
-      type: "string",
-    },
-    {
-      name: "description",
-      type: "text",
+      title: 'My professions',
+      name: 'profession',
+      type: 'array',
+      of: [{name:'profName', type: 'string'}]
     }
-  ]
+  ],
+  preview: {
+    select:{
+      title: 'header',
+    }
+  }
 }
