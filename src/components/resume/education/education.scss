@@ -1,0 +1,38 @@
+@import "../../../sass/variables";
+
+.resumeSection {
+  &__education {
+    position: relative;
+    margin-bottom: 110px;
+  }
+  &__eduList {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__swiperNavigation {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    z-index: 11;
+    right: 0;
+    top: 60px;
+  }
+  &__swiperNavigationItem {
+    cursor: pointer;
+  }
+  &__timeline {
+    height: 1px;
+    position: absolute;
+    width: 100vw;
+    z-index: 1;
+    top: 120px;
+    // left: -50%;
+    right: 0;
+    border-top: 1px solid $color-white;
+    // }
+  }
+}

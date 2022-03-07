@@ -1,4 +1,10 @@
 @import "./variables";
+* {
+  ::selection {
+    background-color: $color-accent;
+    color: $color-white;
+  }
+}
 body {
   max-width: $site-max-width;
   margin: 0 auto;
