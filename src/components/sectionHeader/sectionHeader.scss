@@ -1,0 +1,27 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+
+.sectionHeader {
+  position: relative;
+  &__main {
+    font-family: "Futura";
+    font-size: 40px;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    font-family: "Montserrat";
+    font-size: 80px;
+    font-weight: 900;
+    opacity: 0.2;
+    line-height: 0;
+    @include stroke(1px, $color-secondary);
+    color: $color-main-background;
+  }
+}
