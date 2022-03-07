@@ -22,30 +22,21 @@ export default {
   ],
   fields: [
     {
-      name: 'sectionHeader',
-      title: 'Section header',
-      type: 'sectionHeader',
+      name: 'education',
+      title: 'Education',
+      type: 'education',
       group: 'education'
     },
     {
-      name: 'eduList',
-      title: 'Education list',
-      type: 'array',
-      of: [{type: 'educationItem'}],
-      group: 'education'
-    },
-    {
-      name: 'experienceList',
-      title: 'Experience list',
-      type: 'array',
-      of: [{type: 'experienceItem'}],
+      name: 'experience',
+      title: 'Experience',
+      type: 'experience',
       group: 'experience'
     },
     {
-      name: 'skillsList',
-      title: 'Skills list',
-      type: 'array',
-      of: [{type: 'skillItem'}],
+      name: 'skills',
+      title: 'Skills',
+      type: 'skills',
       group: 'skills'
     },
     {
@@ -57,7 +48,7 @@ export default {
     {
       name: 'ctaButton',
       title: 'Button text',
-      type: 'text',
+      type: 'string',
       group: 'resumeCta'
     },
     {
@@ -78,8 +69,12 @@ export default {
   ],
   preview: {
     select:{
-      title: 'sectionHeader.header',
-      subtitle: 'sectionHeader.subHeader'
+      title: 'title'
+    },
+    prepare() {
+      return {
+        title: 'Resume'
+      }
     }
   }
 }

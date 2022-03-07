@@ -6,18 +6,20 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // We import object and document schemas
 // import blockContent from './blockContent'
-import hero from './hero'
+import home from './home'
 import about from './about'
 import resume from './resume'
 import contact from './contact'
 import social from './social'
 import sectionHeader from './sectionHeader'
+import education from './education'
 import educationItem from './educationItem'
 import experienceItem from './experienceItem'
 import iconTextField from './iconTextField'
 import skillItem from './skillItem'
 import navBar from './navBar'
-import navBarItem from './navBarItem'
+import skills from './skills'
+import experience from './experience'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -28,9 +30,12 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
-    hero,
+    home,
     about,
     resume,
+    education,
+    experience,
+    skills,
     contact,
     navBar,
     // When added to this list, object types can be used as
@@ -41,7 +46,6 @@ export default createSchema({
     educationItem,
     experienceItem,
     skillItem,
-    iconTextField,
-    navBarItem
+    iconTextField
   ]),
 })

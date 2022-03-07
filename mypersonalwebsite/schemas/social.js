@@ -1,7 +1,7 @@
 export default {
-  name: 'social',
-  title: 'social',
-  type: 'object',
+  name: 'socialMedia',
+  title: 'Social media',
+  type: 'document',
   fields: [
     {
       title: 'Facebook',
@@ -18,5 +18,15 @@ export default {
       name: 'github',
       type: 'url'
     }
-  ]
+  ],
+  preview: {
+    select:{
+      title: 'title'
+    },
+    prepare() {
+      return {
+        title: 'Social media'
+      }
+    }
+  }
 }
