@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNav } from "../../hooks/useNav";
-import "./home.scss";
-import sanityClient from "../../Client";
 import { init } from "ityped";
+import sanityClient from "../../Client";
+import "./home.scss";
 
-const Hero = () => {
-  const [heroData, setHeroData] = useState(null);
-  const motionTextRef = useRef();
+const Home = () => {
   const homeRef = useNav("Home");
+  const [homeData, setHomeData] = useState(null);
+  const motionTextRef = useRef();
 
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "hero"][0]{
+        `*[_type == "home"][0]{
           image{
             asset->{
               _id,
@@ -25,7 +25,7 @@ const Hero = () => {
         }`
       )
       .then((data) => {
-        setHeroData(data);
+        setHomeData(data);
         // Motion text
         init(motionTextRef.current, {
           showCursor: true,
@@ -38,16 +38,16 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" ref={homeRef} className="heroSection">
-      {heroData != null && (
-        <div className="heroSection__wrapper">
+    <section id="home" ref={homeRef} className="homeSection">
+      {homeData !== null && (
+        <div className="homeSection__wrapper">
           <img
-            className="heroSection__image"
-            src={heroData.image.asset.url}
-            alt={heroData.image.alt}
+            className="homeSection__image"
+            src={homeData.image.asset.url}
+            alt={homeData.image.alt}
           />
-          <h1 className="heroSection__header">{heroData.header}</h1>
-          <p className="heroSection__motionText">
+          <h1 className="homeSection__header">{homeData.header}</h1>
+          <p className="homeSection__motionText">
             I'm a <span ref={motionTextRef}></span>
           </p>
         </div>
@@ -56,4 +56,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Home;

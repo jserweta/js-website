@@ -16,6 +16,12 @@ body {
   top: 0;
 }
 
+.accentHighlight {
+  font-family: "Futura";
+  font-weight: 400;
+  color: $color-accent;
+}
+
 a {
   text-decoration: none;
   color: $color-white;

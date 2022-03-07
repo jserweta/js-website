@@ -1,4 +1,84 @@
-.aboutMe {
+.aboutMeSection {
   height: 100vh;
-  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .sectionHeader {
+    &__background {
+      top: 30px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 65px;
+    font-family: "Montserrat";
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+
+    p {
+      margin-bottom: 50px;
+    }
+
+    .accentHighlight {
+      margin: 0;
+      font-size: 25px;
+    }
+  }
+
+  &__cta {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 45px;
+  }
+
+  &__imageWrapper {
+    position: relative;
+  }
+
+  &__imageCaption {
+    width: 172px;
+    height: 166px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    z-index: 1;
+    left: -15%;
+    bottom: -20%;
+    h3 {
+      font-family: "Futura";
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      position: relative;
+      text-align: center;
+      margin: 0;
+      span {
+        font-size: 21px;
+        font-weight: 400;
+      }
+    }
+    &::after {
+      content: "";
+      background-image: url("../../img/background-path.svg");
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  }
+  &__image {
+    width: 285px;
+    height: auto;
+  }
 }

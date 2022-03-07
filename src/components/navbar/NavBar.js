@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./navbar.scss";
 import sanityClient from "../../Client";
 import NavItem from "./NavItem";
 import { ReactComponent as HomeIcon } from "../../img/home.svg";
 import { ReactComponent as AboutMeIcon } from "../../img/about-me.svg";
 import { ReactComponent as ResumeIcon } from "../../img/resume.svg";
 import { ReactComponent as ContactIcon } from "../../img/contact.svg";
+import "./navbar.scss";
 
 const NavBar = () => {
   const navIcon = [HomeIcon, AboutMeIcon, ResumeIcon, ContactIcon];

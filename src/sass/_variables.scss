@@ -21,6 +21,16 @@ $color-white: #ffffff;
 
 @font-face {
   font-family: "Futura";
+  src: local("Futura"), url("../fonts/Futura-Bol.woff2") format("woff2"),
+    url("../fonts/Futura-Bol.woff") format("woff"),
+    url("../fonts/Futura-Bol.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Futura";
   src: local("Futura"), url("../fonts/Futura-Boo.woff2") format("woff2"),
     url("../fonts/Futura-Boo.woff") format("woff"),
     url("../fonts/Futura-Boo.ttf") format("truetype");

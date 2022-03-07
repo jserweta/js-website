@@ -30,6 +30,12 @@ export default {
      group: 'mainContent'
    },
    {
+    name: 'cta',
+    title: 'Call to action',
+    type: 'string',
+    group: 'mainContent'
+   },
+   {
      name: 'image',
      title: 'Image',
      type: 'image',
@@ -40,20 +46,20 @@ export default {
      title: 'Image caption',
      type: 'string',
      group: 'mainContent'
-   },
-   {
-     name: 'socialMedia',
-     title: 'Social media',
-     type: 'social',
-     group: 'socialMedia'
    }
-
-
   ],
   preview: {
     select:{
-      title: 'sectionHeader.header',
+      title: 'sectionHeader.headerBasic',
+      titleSecond: 'sectionHeader.headerHighlight',
       subtitle: 'sectionHeader.subHeader'
+    },
+    prepare(selection) {
+      const {title, titleSecond, subtitle} = selection
+      return {
+        title: `${title} ${titleSecond}`,
+        subtitle: subtitle
+      }
     }
   }
 }

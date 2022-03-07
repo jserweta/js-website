@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import "./navbar.scss";
 import { NavContext } from "../../context/NavContext";
+import "./navbar.scss";
 
 const NavItem = ({ itemObj, ItemIcon }) => {
   const { activeNavItem, setActiveNavItem } = useContext(NavContext);
