@@ -1,0 +1,43 @@
+@import "../../sass/variables";
+
+.heroSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Futura";
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__image {
+    width: 300px;
+    height: auto;
+  }
+  &__header {
+    font-size: 70px;
+    font-weight: 500;
+  }
+  &__motionText {
+    font-size: 40px;
+    margin: 0;
+    span {
+      color: $color-accent;
+      font-size: inherit;
+    }
+    .ityped-cursor {
+      animation: blink 1s infinite;
+      color: $color-white;
+    }
+    @keyframes blink {
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+}
