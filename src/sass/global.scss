@@ -6,8 +6,8 @@
   }
 }
 body {
-  max-width: $site-max-width;
-  margin: 0 auto;
+  // max-width: $site-max-width;
+  // margin: 0 auto;
   color: $color-white;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,8 +15,8 @@ body {
 }
 
 .overflow {
-  position: absolute;
-  z-index: -1;
+  position: fixed;
+  z-index: -3;
   height: 100%;
   width: 50vw;
   top: 0;

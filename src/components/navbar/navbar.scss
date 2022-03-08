@@ -1,10 +1,14 @@
 @import "../../sass/variables";
 
 .navBar {
+  width: $nav-max-width;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  left: calc((-100vh + $site-max-width) / 2);
   display: flex;
   justify-content: center;
-  flex: 1;
-  z-index: 1;
   background-color: $color-box;
 
   &__content {
@@ -56,6 +60,6 @@
   }
   .overflow {
     background-color: $color-box;
-    left: 0;
+    right: calc((100vh + $site-max-width) / 2 + $nav-max-width);
   }
 }
