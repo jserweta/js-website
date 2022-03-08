@@ -25,14 +25,11 @@
     cursor: pointer;
   }
   &__timeline {
-    height: 1px;
     position: absolute;
     width: 100vw;
     z-index: 1;
-    top: 120px;
-    // left: -50%;
+    top: 138px;
     right: 0;
     border-top: 1px solid $color-white;
-    // }
   }
 }

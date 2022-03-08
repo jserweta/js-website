@@ -1,0 +1,17 @@
+@import "../../sass/variables";
+
+.button {
+  cursor: pointer;
+  font-size: 25px;
+  font-family: "Futura";
+  color: $color-accent;
+  padding: 10px 20px;
+  border: 2px solid $color-white;
+  background-color: $color-white;
+  transition-duration: $transition-duration;
+  &:hover {
+    color: $color-white;
+    border-color: $color-accent;
+    background-color: transparent;
+  }
+}

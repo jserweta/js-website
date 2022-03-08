@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SectionHeader from "../../sectionHeader/SectionHeader";
 import sanityClient from "../../../Client";
+import SkillsItem from "./SkillsItem";
+import "./skills.scss";
 
 const Skills = () => {
   const [skillsData, setSkillsData] = useState(null);
@@ -23,9 +25,12 @@ const Skills = () => {
     <>
       {skillsData !== null && (
         <article className="resumeSection__skills">
-          <SectionHeader
-            sectionHeader={skillsData.skills.sectionHeader}
-          />
+          <SectionHeader sectionHeader={skillsData.skills.sectionHeader} />
+          <div className="resumeSection__skillItems">
+            {skillsData.skills.skillsList.map((item) => (
+              <SkillsItem key={item._key} skillsItemData={item} />
+            ))}
+          </div>
         </article>
       )}
     </>

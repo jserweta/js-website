@@ -1,0 +1,12 @@
+.contactSection {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .sectionHeader {
+    &__background {
+      top: 20px;
+    }
+  }
+}
