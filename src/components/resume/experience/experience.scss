@@ -77,7 +77,7 @@
         }
       }
       &::after {
-        background-color: lighten($color: $color-box, $amount: 5%);
+        background-color: lighten($color-box, 5%);
       }
     }
   }

@@ -23,6 +23,20 @@
   }
   &__swiperNavigationItem {
     cursor: pointer;
+
+    &:hover {
+      svg {
+        transition: $transition-duration;
+        transform: translateX(5px);
+      }
+    }
+  }
+  &__swiperNavigationItem:first-child {
+    &:hover {
+      svg {
+        transform: translateX(-5px);
+      }
+    }
   }
   &__timeline {
     position: absolute;

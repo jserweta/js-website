@@ -38,5 +38,12 @@
     position: absolute;
     top: 0;
     z-index: 1;
+    transition: $transition-duration;
+  }
+
+  &:hover {
+    &::before {
+      background: url("../../../img/timeline-bullet-hover.svg");
+    }
   }
 }

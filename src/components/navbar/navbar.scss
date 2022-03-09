@@ -23,10 +23,11 @@
     display: flex;
     align-items: center;
     color: $color-secondary;
-
+    transition: $transition-duration;
     svg {
       fill: $color-secondary;
       padding-right: 20px;
+      transition: $transition-duration;
     }
     p {
       display: inline-block;
@@ -47,10 +48,11 @@
     &:hover {
       cursor: pointer;
       color: $color-white;
-      transition: $transition-duration;
       svg {
         fill: $color-white;
       }
+
+      transform: translateX(5px) scale(105%);
     }
   }
   &__logo {
