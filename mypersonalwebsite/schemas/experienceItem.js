@@ -10,12 +10,18 @@ export default {
     {
       title: 'Work start',
       name: 'workStartDate',
-      type: 'date'
+      type: 'date',
+      options: {
+        dateFormat: 'YYYY-MM'
+      }
     },
     {
       title: 'Work end',
       name: 'workEndDate',
-      type: 'date'
+      type: 'date',
+      options: {
+        dateFormat: 'YYYY-MM'
+      }
     },
     {
       title: 'Company name',

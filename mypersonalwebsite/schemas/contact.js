@@ -39,8 +39,16 @@ export default {
   ],
   preview: {
     select:{
-      title: 'sectionHeader.header',
+      title: 'sectionHeader.headerBasic',
+      titleSecond: 'sectionHeader.headerHighlight',
       subtitle: 'sectionHeader.subHeader'
+    },
+    prepare(selection) {
+      const {title, titleSecond, subtitle} = selection
+      return {
+        title: `${title} ${titleSecond}`,
+        subtitle: subtitle
+      }
     }
   }
 }
