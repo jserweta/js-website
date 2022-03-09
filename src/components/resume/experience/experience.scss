@@ -3,46 +3,42 @@
 .resumeSection {
   &__experienceItems {
     display: grid;
+    gap: 80px;
     grid-template-columns: repeat(2, 1fr);
   }
   &__experienceItem {
-    display: flex;
-    align-items: center;
+    width: 90%;
+    display: table;
+    padding: 50px 30px 50px 0;
     position: relative;
-    &:nth-child(2n + 1) {
-      left: -50px;
-    }
+    transition-duration: $transition-duration;
+
     .highlight {
-      position: relative;
-      left: 50px;
-      text-align: right;
+      vertical-align: middle;
+      display: table-cell;
+      width: 130px;
+
       h2 {
         font-size: 70px;
         font-weight: 500;
         line-height: 1;
         color: $color-secondary-darker;
         margin: 0;
+        transition-duration: $transition-duration;
       }
       p {
+        text-align: right;
         margin-top: 5px;
         font-size: 14px;
         color: $color-secondary;
       }
     }
     .content {
-      padding-left: 80px;
-      padding-right: 25px;
-      min-height: 180px;
-      max-width: 285px;
-      background-color: $color-box;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
+      display: table-cell;
+      padding-left: 30px;
       h3 {
         font-family: "Futura";
         font-size: 25px;
-        word-wrap: normal;
         font-weight: 500;
         margin-bottom: 20px;
         margin-top: 0;
@@ -50,9 +46,8 @@
       .company {
         display: flex;
         flex-direction: row;
-        justify-content: center;
         align-items: center;
-        gap: 8px;
+        gap: 15px;
 
         img {
           height: 25px;
@@ -61,6 +56,28 @@
         p {
           font-size: 14px;
         }
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: $color-box;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 80%;
+      z-index: -1;
+      transition-duration: $transition-duration;
+    }
+
+    &:hover {
+      .highlight {
+        h2 {
+          color: $color-accent;
+        }
+      }
+      &::after {
+        background-color: lighten($color: $color-box, $amount: 5%);
       }
     }
   }
