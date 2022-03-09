@@ -16,7 +16,7 @@ const Skills = () => {
       )
       .then((data) => {
         setSkillsData(data);
-        console.log(data);
+        console.log(data.skillIcon);
       })
       .catch(console.error);
   }, []);

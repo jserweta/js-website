@@ -13,12 +13,12 @@ const Cta = () => {
           ctaContent,
           ctaButton,
           buttonLink,
-          downloadFile
+          "downloadFile": downloadFile.asset->url
         }`
       )
       .then((data) => {
         setCtaData(data);
-        console.log(data);
+        console.log(data.downloadFile);
       })
       .catch(console.error);
   }, []);
