@@ -8,6 +8,7 @@ import Contact from "./components/contact/Contact";
 import "./sass/_normalize.scss";
 import "./sass/global.scss";
 import "./sass/_app.scss";
+import Footer from "./components/footer/Footer";
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
           <div className="overflow"></div>
         </main>
       </NavProvider>
+      <Footer/>
     </div>
   );
 };
