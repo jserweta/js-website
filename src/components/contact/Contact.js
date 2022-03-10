@@ -1,61 +1,97 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import sanityClient from "../../Client";
 import * as sanityURL from "../../SanityURL";
 import { useNav } from "../../hooks/useNav";
 import emailjs from "emailjs-com";
 import SectionHeader from "../sectionHeader/SectionHeader";
-import Button from "../button/Button";
 import "./contact.scss";
+import ValidationBox from "./ValidationBox";
 
 const Contact = () => {
   const contactRef = useNav("Contact");
+  const firstRender = useRef(true);
+
+  const [disable, setDisabled] = useState(true);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [emailSent, setEmailSent] = useState(false);
+  const [fillAll, setFillAll] = useState(false);
+  const [validEmail, setValidEmail] = useState(true);
 
   const [contactData, setContactData] = useState(null);
 
   useEffect(() => {
-    sanityClient
-      .fetch(
-        `*[_type == "contact"][0]{
+    if (firstRender.current) {
+      firstRender.current = false;
+
+      sanityClient
+        .fetch(
+          `*[_type == "contact"][0]{
           sectionHeader,
           content,
           contactDetails
         }`
-      )
-      .then((data) => {
-        setContactData(data);
-        console.log(data);
-      })
-      .catch(console.error);
-  }, []);
+        )
+        .then((data) => {
+          setContactData(data);
+        })
+        .catch(console.error);
+      return;
+    }
+
+    setDisabled(formValidation());
+  }, [name, email, message]);
+
+  const formValidation = () => {
+    if (!name || !email || !message) {
+      setEmailSent(false);
+      setFillAll(true);
+    }
+
+    if (email && !isValidEmail(email)) {
+      setValidEmail(false);
+      if (name && message) {
+        setFillAll(false);
+      }
+    } else {
+      setValidEmail(true);
+    }
+
+    if (name && email && message && validEmail) {
+      setFillAll(false);
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   const submit = () => {
-    if (name && email && message) {
-      const serviceId = "service_myek2jv";
-      const templateId = "template_f4pcc2j";
-      const userId = "9WzsiAWCH3B8EaCQ8";
-      const templateParams = {
-        name,
-        email,
-        message,
-      };
+    const serviceId = "service_myek2jv";
+    const templateId = "template_f4pcc2j";
+    const userId = "9WzsiAWCH3B8EaCQ8";
+    const templateParams = {
+      name,
+      email,
+      message,
+    };
 
-      emailjs
-        .send(serviceId, templateId, templateParams, userId)
-        .then((response) => console.log(response))
-        .then((error) => console.log(error));
+    emailjs
+      .send(serviceId, templateId, templateParams, userId)
+      .then((response) => {
+        console.log(response);
+      })
+      .then((error) => {
+        console.log(error);
+      });
 
-      setName("");
-      setEmail("");
-      setMessage("");
-      setEmailSent(true);
-    } else {
-      alert("Please fill in all fields.");
-    }
+    setName("");
+    setEmail("");
+    setMessage("");
+    setEmailSent(true);
+    firstRender.current = true;
+    setDisabled(true);
   };
 
   const isValidEmail = (email) => {
@@ -88,29 +124,45 @@ const Contact = () => {
             <div className="contactSection__form">
               <input
                 type="text"
+                id="myname"
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
               <input
                 type="email"
-                name="from_email"
                 placeholder="E-mail"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              {!validEmail && (
+                <ValidationBox
+                  message="Email address is incorrect."
+                  type="error"
+                />
+              )}
               <textarea
                 placeholder="Message"
-                name="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               ></textarea>
-              <button className="button" text="Send message" onClick={submit}>
+              {fillAll && (
+                <ValidationBox message="Fill in all fields." type="error" />
+              )}
+              <button
+                className="button"
+                text="Send message"
+                onClick={submit}
+                disabled={disable}
+              >
                 Send message
               </button>
-              <span className={emailSent ? "visible" : null}>
-                Thank you for your message, we will be in touch in no time!
-              </span>
+              {emailSent && (
+                <ValidationBox
+                  message="Thank you for your message, we will be in touch in no time!"
+                  type="success"
+                />
+              )}
             </div>
           </div>
         </>

@@ -71,6 +71,26 @@
     .button {
       width: fit-content;
     }
+
+    .validationMessage {
+      // display: none;
+      &.error,
+      &.success {
+        padding: 10px;
+        margin-bottom: 24px;
+        font-weight: 400;
+      }
+      &.error {
+        border: 1px solid $color-accent;
+      }
+      &.success {
+        border: 1px solid $color-white;
+        margin-top: 24px;
+      }
+      // &.visible {
+      //   display: block;
+      // }
+    }
   }
   .overflow {
     background-color: $color-box;
