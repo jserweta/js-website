@@ -12,10 +12,14 @@ const Resume = () => {
     <section id="resume" ref={resumeRef} className="resumeSection">
       <div className="resumeSection__wrapper">
         <Education />
+      </div>
+      <div className="resumeSection__wrapper">
         <Experience />
       </div>
       <div className="resumeSection__wrapper">
         <Skills />
+      </div>
+      <div className="resumeSection__wrapper">
         <Cta />
       </div>
     </section>

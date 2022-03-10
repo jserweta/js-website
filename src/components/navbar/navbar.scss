@@ -6,7 +6,7 @@
   position: fixed;
   top: 0;
   z-index: 2;
-  left: calc((-100vh + $site-max-width) / 2);
+  // left: calc((-100vh + $site-max-width) / 2);
   display: flex;
   justify-content: center;
   background-color: $color-box;

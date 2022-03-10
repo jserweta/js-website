@@ -1,12 +1,79 @@
+@import "../../sass/variables";
+
 .contactSection {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 14px;
 
   .sectionHeader {
     &__background {
       top: 20px;
     }
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 70px;
+  }
+
+  &__info {
+    flex: 1;
+    > p {
+      margin-bottom: 35px;
+      line-height: 1.5;
+    }
+    .detail {
+      p {
+        margin: 0;
+      }
+      margin: 25px 0;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      img {
+        width: 18px;
+        height: auto;
+      }
+    }
+  }
+  &__form {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid $color-white;
+      margin-bottom: 24px;
+      line-height: 2;
+      font-weight: 300;
+      // font-family: "Montserrat";
+      color: $color-white;
+      // outline: none;
+      &::placeholder {
+        font-weight: 400;
+      }
+      &:focus {
+        border-bottom: 1px solid $color-accent;
+        outline: none;
+        // border: 1px solid red;
+        // box-shadow: 0 0 10px #719ece;
+      }
+    }
+    textarea {
+      height: 80px;
+    }
+    .button {
+      width: fit-content;
+    }
+  }
+  .overflow {
+    background-color: $color-box;
+    right: 0;
   }
 }

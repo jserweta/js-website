@@ -6,10 +6,11 @@
   }
 }
 body {
-  // max-width: $site-max-width;
-  // margin: 0 auto;
+  max-width: $site-max-width;
+  margin: 0 auto;
   color: $color-white;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

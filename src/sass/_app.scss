@@ -7,17 +7,17 @@
 
 .App {
   // display: flex;
-  // margin: 0 auto;
+  margin: 0 auto;
   // height: 100%;
   .mainContent {
     z-index: 1;
     position: relative;
-    width: calc($site-max-width - $nav-max-width);
+    // width: calc($site-max-width - $nav-max-width);
     // height: 200vh;
     // flex: 4;
     // overflow-y: auto;
-    padding-left: 75px;
-    margin-left: calc((-100vh + $site-max-width) / 2 + $nav-max-width);
+    padding: 0 60px;
+    margin-left: calc((100vw - $site-max-width) / 2 + $nav-max-width);
     background-color: $color-main-background;
     // &::-webkit-scrollbar {
     //   display: none;
@@ -25,6 +25,13 @@
     .overflow {
       background-color: $color-main-background;
       right: 0;
+      width: 100vw;
+    }
+  }
+  @media (max-width: $site-max-width) {
+    .mainContent {
+      // width: auto;
+      margin-left: $nav-max-width;
     }
   }
 }
