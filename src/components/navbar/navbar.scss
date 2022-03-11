@@ -190,6 +190,7 @@
 
   .navBar {
     width: calc($site-max-width / 6);
+    display: none;
 
     &__wrapper {
       transition: $transition-duration all;
@@ -207,6 +208,7 @@
     }
   }
   .navBar.showMobile {
+    display: block;
     .navBar__wrapper {
       display: flex;
       transform: translateX(0);

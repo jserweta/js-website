@@ -40,12 +40,34 @@ const NavBar = () => {
   }, []);
 
   return (
-    <header
-      className={`navBar ${isOpen ? "showMobile" : ""} `}
-      onMouseEnter={isTablet ? toggleMenu : null}
-      onMouseLeave={isTablet ? toggleMenu : null}
-      onMouseOver={isTablet ? openMenu : null}
-    >
+    <>
+      <header
+        className={`navBar ${isOpen ? "showMobile" : ""} `}
+        onMouseEnter={isTablet ? toggleMenu : null}
+        onMouseLeave={isTablet ? toggleMenu : null}
+        onMouseOver={isTablet ? openMenu : null}
+      >
+        <div className="navBar__wrapper">
+          <nav className="navBar__content">
+            <img
+              className="navBar__logo"
+              src={process.env.PUBLIC_URL + "logo-JS.png"}
+              alt="Site logo"
+            />
+
+            {navItems &&
+              navItems.map((navItem, index) => (
+                <NavItem
+                  itemObj={navItem}
+                  ItemIcon={navIcon[index]}
+                  menuItemClick={toggleMenu}
+                  key={index}
+                />
+              ))}
+          </nav>
+          <div className="overflow"></div>
+        </div>
+      </header>
       <div
         className={`mobileButton ${isOpen ? "cross" : ""}`}
         onClick={toggleMenu}
@@ -55,27 +77,7 @@ const NavBar = () => {
         <div className="bar"></div>
         <div className="bar"></div>
       </div>
-      <div className="navBar__wrapper">
-        <nav className="navBar__content">
-          <img
-            className="navBar__logo"
-            src={process.env.PUBLIC_URL + "logo-JS.png"}
-            alt="Site logo"
-          />
-
-          {navItems &&
-            navItems.map((navItem, index) => (
-              <NavItem
-                itemObj={navItem}
-                ItemIcon={navIcon[index]}
-                menuItemClick={toggleMenu}
-                key={index}
-              />
-            ))}
-        </nav>
-        <div className="overflow"></div>
-      </div>
-    </header>
+    </>
   );
 };
 
