@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNav } from "../../hooks/useNav";
 import { init } from "ityped";
-import sanityClient from "../../Client.js";
+import sanityClient from "../../client.js";
 import "./home.scss";
 
 const Home = () => {

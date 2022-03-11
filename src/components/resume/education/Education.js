@@ -4,7 +4,7 @@ import { Controller } from "swiper";
 import SectionHeader from "../../sectionHeader/SectionHeader";
 import { ReactComponent as ArrowRight } from "../../../img/arrow-right.svg";
 import { ReactComponent as ArrowLeft } from "../../../img/arrow-left.svg";
-import sanityClient from "../../../Client.js";
+import sanityClient from "../../../client.js";
 import EducationItem from "./EducationItem";
 
 import "./education.scss";

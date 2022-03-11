@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import sanityClient from "../../../Client.js";
+import sanityClient from "../../../client.js";
 import Button from "../../button/Button";
 import "./cta.scss";
 

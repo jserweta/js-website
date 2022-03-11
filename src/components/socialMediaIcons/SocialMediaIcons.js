@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import sanityClient from "../../Client.js";
+import sanityClient from "../../client.js";
 import { ReactComponent as FacebookIcon } from "../../img/logo-facebook.svg";
 import { ReactComponent as LinkedInIcon } from "../../img/logo-linkedin.svg";
 import { ReactComponent as GithubIcon } from "../../img/logo-github.svg";
