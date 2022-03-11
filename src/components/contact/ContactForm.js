@@ -20,31 +20,33 @@ const ContactForm = () => {
       return;
     }
 
-    setDisabled(formValidation());
-  }, [name, email, message]);
-
-  const formValidation = () => {
-    if (!name || !email || !message) {
-      setEmailSent(false);
-      setFillAll(true);
-    }
-
-    if (email && !isValidEmail(email)) {
-      setValidEmail(false);
-      if (name && message) {
-        setFillAll(false);
+    const formValidation = () => {
+      if (!name || !email || !message) {
+        setEmailSent(false);
+        setFillAll(true);
       }
-    } else {
-      setValidEmail(true);
-    }
+  
+      if (email && !isValidEmail(email)) {
+        setValidEmail(false);
+        if (name && message) {
+          setFillAll(false);
+        }
+      } else {
+        setValidEmail(true);
+      }
+  
+      if (name && email && message && validEmail) {
+        setFillAll(false);
+        return false;
+      } else {
+        return true;
+      }
+    };
 
-    if (name && email && message && validEmail) {
-      setFillAll(false);
-      return false;
-    } else {
-      return true;
-    }
-  };
+    setDisabled(formValidation());
+  }, [name, email, message, validEmail]);
+
+  
 
   const submit = () => {
     const serviceId = "service_myek2jv";
@@ -75,7 +77,7 @@ const ContactForm = () => {
 
   const isValidEmail = (email) => {
     const regex =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regex.test(String(email).toLowerCase());
   };
 
