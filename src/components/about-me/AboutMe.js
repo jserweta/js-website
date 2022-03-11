@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNav } from "../../hooks/useNav";
-import sanityClient from "../../Client";
+import sanityClient from "../../Client.js";
 import SectionHeader from "../sectionHeader/SectionHeader";
 import SocialMediaIcons from "../socialMediaIcons/SocialMediaIcons";
 import "./aboutMe.scss";

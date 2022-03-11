@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SectionHeader from "../../sectionHeader/SectionHeader";
-import sanityClient from "../../../Client";
+import sanityClient from "../../../Client.js";
 import SkillsItem from "./SkillsItem";
 import "./skills.scss";
 

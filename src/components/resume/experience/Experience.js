@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SectionHeader from "../../sectionHeader/SectionHeader";
 import ExperienceItem from "./ExperienceItem";
-import sanityClient from "../../../Client";
+import sanityClient from "../../../Client.js";
 
 import "./experience.scss";
 
