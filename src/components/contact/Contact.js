@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import sanityClient from "../../client.js";
-import * as sanityURL from "../../sanityURL";
+import * as sanityURL from "../../sanityURL.js";
 import { useNav } from "../../hooks/useNav";
 import SectionHeader from "../sectionHeader/SectionHeader";
 import ContactForm from "./ContactForm";

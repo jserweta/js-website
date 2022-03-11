@@ -1,5 +1,5 @@
 import React from "react";
-import * as sanityURL from "../../../sanityURL";
+import * as sanityURL from "../../../sanityURL.js";
 
 const SkillsItem = ({ skillsItemData }) => {
   return (
