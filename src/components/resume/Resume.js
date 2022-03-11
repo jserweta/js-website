@@ -10,18 +10,18 @@ const Resume = () => {
   const resumeRef = useNav("Resume");
   return (
     <section id="resume" ref={resumeRef} className="resumeSection">
-      <div className="resumeSection__wrapper">
+      {/* <div className="resumeSection__wrapper"> */}
         <Education />
-      </div>
-      <div className="resumeSection__wrapper">
+      {/* </div> */}
+      {/* <div className="resumeSection__wrapper"> */}
         <Experience />
-      </div>
-      <div className="resumeSection__wrapper">
+      {/* </div> */}
+      {/* <div className="resumeSection__wrapper"> */}
         <Skills />
-      </div>
-      <div className="resumeSection__wrapper">
+      {/* </div> */}
+      {/* <div className="resumeSection__wrapper"> */}
         <Cta />
-      </div>
+      {/* </div> */}
     </section>
   );
 };

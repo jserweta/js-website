@@ -18,7 +18,7 @@ const Cta = () => {
       )
       .then((data) => {
         setCtaData(data);
-        console.log(data.downloadFile);
+        // console.log(data.downloadFile);
       })
       .catch(console.error);
   }, []);

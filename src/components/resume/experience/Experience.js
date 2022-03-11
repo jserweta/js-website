@@ -17,7 +17,7 @@ const Experience = () => {
       )
       .then((data) => {
         setExperienceData(data);
-        console.log(data);
+        // console.log(data);
       })
       .catch(console.error);
   }, []);

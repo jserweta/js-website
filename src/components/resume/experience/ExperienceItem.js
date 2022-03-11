@@ -5,7 +5,7 @@ const ExperienceItem = ({ experienceItemData }) => {
   const yearStart = new Date(experienceItemData.workStartDate).getFullYear();
 
   const yearEnd = new Date(experienceItemData.workEndDate).getFullYear();
-  console.log(experienceItemData.workEndDate);
+  // console.log(experienceItemData.workEndDate);
 
   const monthStart = new Date(experienceItemData.workStartDate).toLocaleString(
     "en-US",

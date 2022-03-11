@@ -41,4 +41,14 @@
       }
     }
   }
+  @media (max-width: $md) {
+    &__motionText {
+      height: 100px;
+    }
+  }
+  @media (max-width: $sm) {
+    &__image {
+      width: 100%;
+    }
+  }
 }

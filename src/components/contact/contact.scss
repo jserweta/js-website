@@ -1,15 +1,16 @@
 @import "../../sass/variables";
 
 .contactSection {
-  height: 100vh;
+  height: 60vh; //100
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-size: 14px;
-
+  padding-bottom: 50px;
   .sectionHeader {
     &__background {
-      top: 20px;
+      font-size: 60px;
+      top: 0px;
     }
   }
 
@@ -92,8 +93,34 @@
       // }
     }
   }
-  .overflow {
-    background-color: $color-box;
-    right: 0;
+  // .overflow {
+  //   background-color: $color-box;
+  //   right: 0;
+  // }
+
+  @media (max-width: calc($md + 12px)) {
+    .sectionHeader {
+      &__main {
+        top: 60px;
+      }
+    }
+  }
+
+  @media (max-width: $md) {
+    // display: block;
+    height: auto;
+    &__wrapper {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  @media (max-width: $sm) {
+    .sectionHeader {
+      &__background {
+        font-size: 39px;
+        top: 25px;
+      }
+    }
   }
 }

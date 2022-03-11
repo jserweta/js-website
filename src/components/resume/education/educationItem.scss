@@ -46,4 +46,8 @@
       background: url("../../../img/timeline-bullet-hover.svg");
     }
   }
+
+  @media (max-width: $sm) {
+    max-width: 100%;
+  }
 }

@@ -10,7 +10,6 @@ import "./sass/global.scss";
 import "./sass/_app.scss";
 import Footer from "./components/footer/Footer";
 
-
 const App = () => {
   return (
     <div className="App">
@@ -21,10 +20,10 @@ const App = () => {
           <AboutMe />
           <Resume />
           <Contact />
-          <div className="overflow"></div>
         </main>
+        <div className="overflow overMain"></div>
       </NavProvider>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

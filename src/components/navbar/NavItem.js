@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NavContext } from "../../context/NavContext";
 import "./navbar.scss";
 
-const NavItem = ({ itemObj, ItemIcon }) => {
+const NavItem = ({ itemObj, ItemIcon, menuItemClick }) => {
   const { activeNavItem, setActiveNavItem } = useContext(NavContext);
 
   const handleClick = () => {
@@ -10,6 +10,7 @@ const NavItem = ({ itemObj, ItemIcon }) => {
     document.querySelector(itemObj.navItemLink).scrollIntoView({
       behavior: "smooth",
     });
+    menuItemClick();
   };
 
   return (

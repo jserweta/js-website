@@ -1,3 +1,5 @@
+@import "../../sass/variables";
+
 .aboutMeSection {
   height: 100vh;
   display: flex;
@@ -5,8 +7,9 @@
   justify-content: center;
 
   .sectionHeader {
+    margin-bottom: 50px;
     &__background {
-      top: 30px;
+      top: -10px;
     }
   }
 
@@ -78,5 +81,48 @@
   &__image {
     width: 285px;
     height: auto;
+  }
+
+  @media (max-width: $md) {
+    height: auto;
+    &__wrapper {
+      flex-direction: column-reverse;
+    }
+    &__image {
+      width: 100%;
+      height: auto;
+    }
+
+    &__imageCaption {
+      bottom: -10%;
+      left: -5%;
+    }
+
+    &__content {
+      margin-top: 40px;
+    }
+    .sectionHeader {
+      &__background {
+        top: 0;
+      }
+    }
+    &__cta {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  @media (max-width: $sm) {
+    .sectionHeader {
+      &__background {
+        font-size: 39px;
+        top: 5px;
+      }
+    }
+    &__imageCaption {
+      bottom: -20%;
+      &::after {
+        transform: scale(0.9);
+      }
+    }
   }
 }

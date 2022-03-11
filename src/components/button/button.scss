@@ -9,7 +9,9 @@
   padding: 10px 20px;
   border: 2px solid $color-white;
   background-color: $color-white;
+  white-space: nowrap;
   transition-duration: $transition-duration;
+  text-align: center;
   &:hover {
     color: $color-white;
     border-color: $color-accent;

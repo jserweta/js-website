@@ -9,4 +9,17 @@
   font-size: 20px;
   font-family: "Futura";
   margin-left: $nav-max-width;
+
+  @media (max-width: $xl) {
+    margin-left: calc($site-max-width / 6);
+  }
+
+  @media (max-width: $lg) {
+    margin-left: 60px;
+  }
+
+  @media (max-width: $sm) {
+    margin-left: 0;
+    padding: 20px 40px;
+  }
 }

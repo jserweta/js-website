@@ -3,7 +3,8 @@
 .resumeSection {
   &__education {
     position: relative;
-    // margin-bottom: 110px;
+    // margin-top: 50px;
+    padding-top: 70px;
   }
   &__eduList {
     &:hover {
@@ -19,7 +20,7 @@
     position: absolute;
     z-index: 11;
     right: 0;
-    top: 60px;
+    top: 160px; //60px
   }
   &__swiperNavigationItem {
     cursor: pointer;
@@ -40,10 +41,37 @@
   }
   &__timeline {
     position: absolute;
-    width: 100vw;
+    width: calc(100% + 120px);
     z-index: 1;
-    top: 138px;
-    right: 0;
+    top: 237px; //138px
+    left: -60px;
     border-top: 1px solid $color-white;
+  }
+
+  @media (max-width: $xxl) {
+    &__timeline {
+      width: calc(100% + 80px);
+      left: -40px;
+    }
+  }
+
+  @media (max-width: $md) {
+    &__education {
+      padding-top: 100px;
+    }
+    &__timeline {
+      top: 268px;
+    }
+    &__swiperNavigation {
+      top: 190px;
+    }
+  }
+  @media (max-width: $sm) {
+    &__swiperNavigation {
+      top: 200px;
+    }
+    &__timeline {
+      top: 252px;
+    }
   }
 }

@@ -1,6 +1,7 @@
 $site-max-width: 1366px;
 $nav-max-width: calc($site-max-width / 4);
 $transition-duration: 0.22s;
+
 // Colors
 $color-accent: #f6483b;
 $color-secondary: #a6a6a6;
@@ -8,6 +9,14 @@ $color-secondary-darker: #202020;
 $color-box: #111111;
 $color-main-background: #010101;
 $color-white: #ffffff;
+
+// Breakpoints
+$xxl: $site-max-width;
+$xl: 1200px;
+$lg: 992px;
+$md: 768px;
+$sm: 576px;
+$xs: 575.98px;
 
 // Fonts
 @font-face {

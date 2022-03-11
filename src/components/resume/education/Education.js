@@ -25,7 +25,7 @@ const Education = () => {
       )
       .then((data) => {
         setEducationData(data);
-        console.log(data);
+        // console.log(data);
       })
       .catch(console.error);
   }, []);
@@ -57,7 +57,15 @@ const Education = () => {
 
           <Swiper
             navigation={false}
-            slidesPerView={3}
+            slidesPerView={1}
+            breakpoints={{
+              576: {
+                slidesPerView: 2,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+            }}
             loop={true}
             spaceBetween={10}
             modules={[Controller]}
