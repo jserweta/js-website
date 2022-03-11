@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
-import sanityClient from "../../Client";
+import sanityClient from "../../Client.js";
 import NavItem from "./NavItem";
 import { ReactComponent as HomeIcon } from "../../img/home.svg";
 import { ReactComponent as AboutMeIcon } from "../../img/about-me.svg";
