@@ -25,7 +25,7 @@ const ContactForm = () => {
         setEmailSent(false);
         setFillAll(true);
       }
-  
+
       if (email && !isValidEmail(email)) {
         setValidEmail(false);
         if (name && message) {
@@ -34,7 +34,7 @@ const ContactForm = () => {
       } else {
         setValidEmail(true);
       }
-  
+
       if (name && email && message && validEmail) {
         setFillAll(false);
         return false;
@@ -45,8 +45,6 @@ const ContactForm = () => {
 
     setDisabled(formValidation());
   }, [name, email, message, validEmail]);
-
-  
 
   const submit = () => {
     const serviceId = "service_myek2jv";
