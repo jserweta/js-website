@@ -1,1 +1,4 @@
 /* /index.html 200
+# Redirect default Netlify subdomain to primary domain
+
+https://jserweta.netlify.app/* https://jakubserweta.pl/:splat 301!
