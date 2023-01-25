@@ -65,7 +65,7 @@ const NavBar = () => {
                 />
               ))}
           </nav>
-          <div className="overflow"></div>
+          {/* <div className="overflow"></div> */}
         </div>
       </header>
       <div

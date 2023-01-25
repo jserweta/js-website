@@ -21,7 +21,7 @@ const App = () => {
           <Resume />
           <Contact />
         </main>
-        <div className="overflow overMain"></div>
+        {/* <div className="overflow overMain"></div> */}
       </NavProvider>
       <Footer />
     </div>

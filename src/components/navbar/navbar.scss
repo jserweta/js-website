@@ -67,11 +67,21 @@
     height: auto;
     margin-bottom: 50px;
   }
-  .overflow {
-    background-color: $color-box;
-    // left: 0;
-    width: 100vw;
-    right: calc(100vw - $nav-max-width);
+  // .overflow {
+  //   background-color: $color-box;
+  //   // left: 0;
+  //   width: 100vw;
+  //   right: calc(100vw - $nav-max-width);
+  // }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: calc(100vw - $site-max-width / 2);
+    height: 100vh;
+    background: $color-box;
+    right: 0;
   }
 }
 
@@ -132,9 +142,9 @@
   .navBar {
     width: calc($site-max-width / 6);
     transition: $transition-duration all;
-    .overflow {
-      right: calc(100vw - ($site-max-width / 6));
-    }
+    // .overflow {
+    //   right: calc(100vw - ($site-max-width / 6));
+    // }
   }
 }
 @media (max-width: $lg) {
@@ -173,9 +183,9 @@
       }
     }
 
-    .overflow {
-      display: none;
-    }
+    // .overflow {
+    //   display: none;
+    // }
 
     &:hover {
       cursor: pointer;
@@ -209,6 +219,7 @@
   }
   .navBar.showMobile {
     display: block;
+
     .navBar__wrapper {
       display: flex;
       transform: translateX(0);

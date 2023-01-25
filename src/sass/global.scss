@@ -13,15 +13,16 @@ body {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-.overflow {
-  position: fixed;
-  z-index: -3;
-  height: 100%;
-  width: 50vw;
-  top: 0;
-}
+// .overflow {
+//   position: fixed;
+//   z-index: -3;
+//   height: 100%;
+//   width: 50vw;
+//   top: 0;
+// }
 
 .accentHighlight {
   font-family: "Futura";
