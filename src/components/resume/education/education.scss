@@ -46,6 +46,15 @@
     top: 237px; //138px
     left: -60px;
     border-top: 1px solid $color-white;
+
+    &::after {
+      content: "";
+      border-top: 1px solid #fff;
+      left: 100%;
+      position: absolute;
+      top: -1px;
+      width: calc((100vw - $site-max-width) / 2);
+    }
   }
 
   @media (max-width: $xxl) {
