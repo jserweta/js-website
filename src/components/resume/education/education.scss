@@ -1,0 +1,86 @@
+@import "../../../sass/variables";
+
+.resumeSection {
+  &__education {
+    position: relative;
+    // margin-top: 50px;
+    padding-top: 70px;
+  }
+  &__eduList {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__swiperNavigation {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    z-index: 11;
+    right: 0;
+    top: 160px; //60px
+  }
+  &__swiperNavigationItem {
+    cursor: pointer;
+
+    &:hover {
+      svg {
+        transition: $transition-duration;
+        transform: translateX(5px);
+      }
+    }
+  }
+  &__swiperNavigationItem:first-child {
+    &:hover {
+      svg {
+        transform: translateX(-5px);
+      }
+    }
+  }
+  &__timeline {
+    position: absolute;
+    width: calc(100% + 120px);
+    z-index: 1;
+    top: 237px; //138px
+    left: -60px;
+    border-top: 1px solid $color-white;
+
+    &::after {
+      content: "";
+      border-top: 1px solid #fff;
+      left: 100%;
+      position: absolute;
+      top: -1px;
+      width: calc((100vw - $site-max-width) / 2);
+    }
+  }
+
+  @media (max-width: $xxl) {
+    &__timeline {
+      width: calc(100% + 80px);
+      left: -40px;
+    }
+  }
+
+  @media (max-width: $md) {
+    &__education {
+      padding-top: 100px;
+    }
+    &__timeline {
+      top: 268px;
+    }
+    &__swiperNavigation {
+      top: 190px;
+    }
+  }
+  @media (max-width: $sm) {
+    &__swiperNavigation {
+      top: 200px;
+    }
+    &__timeline {
+      top: 252px;
+    }
+  }
+}

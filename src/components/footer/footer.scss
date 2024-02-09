@@ -1,0 +1,26 @@
+@import "../../sass/variables";
+
+.siteFooter {
+  text-align: center;
+  // background: $color-box;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+  font-size: 16px;
+  font-family: "Futura";
+  margin-left: $nav-max-width;
+  background-color: $color-main-background;
+
+  @media (max-width: $xl) {
+    margin-left: calc($site-max-width / 6);
+  }
+
+  @media (max-width: $lg) {
+    margin-left: 60px;
+  }
+
+  @media (max-width: $sm) {
+    margin-left: 0;
+    padding: 20px 40px;
+  }
+}

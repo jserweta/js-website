@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://jserweta.netlify.app"
+  to = "https://jakubserweta.pl/"
+  status = 301
+  force = true

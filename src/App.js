@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import NavBar from "./components/navbar/NavBar";
+import Home from "./components/home/Home";
+import React from "react";
+import AboutMe from "./components/about-me/AboutMe";
+import NavProvider from "./context/NavContext";
+import Resume from "./components/resume/Resume";
+import Contact from "./components/contact/Contact";
+import "./sass/_normalize.scss";
+import "./sass/global.scss";
+import "./sass/_app.scss";
+import Footer from "./components/footer/Footer";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavProvider>
+        <NavBar />
+        <main className="mainContent">
+          <Home />
+          <AboutMe />
+          <Resume />
+          <Contact />
+        </main>
+        {/* <div className="overflow overMain"></div> */}
+      </NavProvider>
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
