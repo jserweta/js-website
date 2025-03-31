@@ -47,7 +47,7 @@ const ContactForm = () => {
   }, [name, email, message, validEmail]);
 
   const submit = () => {
-    const serviceId = "service_myek2jv";
+    const serviceId = "service_itp3z1y";
     const templateId = "template_f4pcc2j";
     const userId = "9WzsiAWCH3B8EaCQ8";
     const templateParams = {
