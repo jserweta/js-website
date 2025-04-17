@@ -79,7 +79,7 @@ export default defineType({
             // {
             //   type: "page",
             // },
-            { type: "post" },
+            // { type: "post" },
             // {
             //   type: "project",
             // },
