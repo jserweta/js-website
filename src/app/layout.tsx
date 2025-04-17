@@ -1,10 +1,4 @@
-import type { Metadata } from "next";
-import "./globals.css";
-
-export const metadata: Metadata = {
-  title: "Jakub Serweta",
-  description: "",
-};
+import './globals.css';
 
 export default async function RootLayout({
   children,
