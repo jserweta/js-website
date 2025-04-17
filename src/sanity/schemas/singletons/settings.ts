@@ -1,43 +1,43 @@
-import { CogIcon } from "@sanity/icons";
-import { defineArrayMember, defineField, defineType } from "sanity";
+import {CogIcon} from '@sanity/icons'
+import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: "settings",
-  title: "Settings",
-  type: "document",
+  name: 'settings',
+  title: 'Settings',
+  type: 'document',
   icon: CogIcon,
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
   fields: [
     defineField({
-      name: "title",
-      description: "This field is the title of your personal website.",
-      title: "Title",
-      type: "string",
+      name: 'title',
+      description: 'This field is the title of your personal website.',
+      title: 'Title',
+      type: 'string',
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "overview",
-      description: "Used for the <meta> description tag for SEO.",
-      title: "Description",
-      type: "array",
+      name: 'overview',
+      description: 'Used for the <meta> description tag for SEO.',
+      title: 'Description',
+      type: 'array',
       of: [
         // Paragraphs
         defineArrayMember({
           lists: [],
-          type: "block",
+          type: 'block',
           styles: [],
           marks: {
             annotations: [
               {
-                name: "link",
-                type: "object",
-                title: "Link",
+                name: 'link',
+                type: 'object',
+                title: 'Link',
                 fields: [
                   {
-                    name: "href",
-                    type: "url",
-                    title: "Url",
+                    name: 'href',
+                    type: 'url',
+                    title: 'Url',
                   },
                 ],
               },
@@ -58,23 +58,23 @@ export default defineType({
       validation: (rule) => rule.max(155).required(),
     }),
     defineField({
-      name: "logo",
-      title: "Logo",
-      description: "Logo of website displayed above navigation",
-      type: "image",
+      name: 'logo',
+      title: 'Logo',
+      description: 'Logo of website displayed above navigation',
+      type: 'image',
     }),
     defineField({
-      name: "menuItems",
-      title: "Menu Item list",
-      description: "Links displayed on the header of your site.",
-      type: "array",
+      name: 'menuItems',
+      title: 'Menu Item list',
+      description: 'Links displayed on the header of your site.',
+      type: 'array',
       of: [
         {
-          title: "Reference",
-          type: "reference",
+          title: 'Reference',
+          type: 'reference',
           to: [
             {
-              type: "home",
+              type: 'home',
             },
             // {
             //   type: "page",
@@ -88,31 +88,30 @@ export default defineType({
       ],
     }),
     defineField({
-      title: "Social Icons",
-      name: "socialIcons",
-      type: "array",
-      of: [{ type: "iconWithText" }],
+      title: 'Social Icons',
+      name: 'socialIcons',
+      type: 'array',
+      of: [{type: 'iconWithText'}],
     }),
     defineField({
-      name: "footer",
-      description:
-        "This is a block of text that will be displayed at the bottom of the page.",
-      title: "Footer Info",
-      type: "array",
+      name: 'footer',
+      description: 'This is a block of text that will be displayed at the bottom of the page.',
+      title: 'Footer Info',
+      type: 'array',
       of: [
         defineArrayMember({
-          type: "block",
+          type: 'block',
           marks: {
             annotations: [
               {
-                name: "link",
-                type: "object",
-                title: "Link",
+                name: 'link',
+                type: 'object',
+                title: 'Link',
                 fields: [
                   {
-                    name: "href",
-                    type: "url",
-                    title: "Url",
+                    name: 'href',
+                    type: 'url',
+                    title: 'Url',
                   },
                 ],
               },
@@ -122,10 +121,10 @@ export default defineType({
       ],
     }),
     defineField({
-      name: "ogImage",
-      title: "Open Graph Image",
-      type: "image",
-      description: "Displayed on social cards and search engine results.",
+      name: 'ogImage',
+      title: 'Open Graph Image',
+      type: 'image',
+      description: 'Displayed on social cards and search engine results.',
       options: {
         hotspot: true,
       },
@@ -134,9 +133,9 @@ export default defineType({
   preview: {
     prepare() {
       return {
-        title: "Settings",
-        subtitle: "Logo, Menu Items, Footer Info, and Open Graph Image",
-      };
+        title: 'Settings',
+        subtitle: 'Logo, Menu Items, Footer Info, and Open Graph Image',
+      }
     },
   },
-});
+})

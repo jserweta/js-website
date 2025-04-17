@@ -1,4 +1,4 @@
-import { defineQuery } from "next-sanity";
+import {defineQuery} from 'next-sanity'
 
 export const metadataQuery = defineQuery(`
   *[_type == "settings"][0]{
@@ -9,4 +9,4 @@ export const metadataQuery = defineQuery(`
     ogImage,
     footer,
   }
-`);
+`)

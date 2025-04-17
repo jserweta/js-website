@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
     "lint": "next lint",
     "lint:fix": "npm run format && npm run lint -- --fix",
+    "start": "next start",
     "type-check": "tsc --noEmit",
     "typegen": "sanity schema extract && sanity typegen generate"
   },

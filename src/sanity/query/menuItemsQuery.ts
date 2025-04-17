@@ -1,4 +1,4 @@
-import { defineQuery } from "next-sanity";
+import {defineQuery} from 'next-sanity'
 
 export const menuItemsQuery = defineQuery(`
   *[_type == "settings"][0]{
@@ -14,4 +14,4 @@ export const menuItemsQuery = defineQuery(`
       }
     },
   }
-`);
+`)
