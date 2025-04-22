@@ -44,4 +44,9 @@ body {
 
 * {
   transition-duration: 0.22s;
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
 }
