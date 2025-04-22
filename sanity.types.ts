@@ -410,6 +410,7 @@ export type SanityImageMetadata = {
 
 export type HeroSection = {
   _type: 'heroSection';
+  sectionId?: string;
   image?: {
     asset?: {
       _ref: string;
@@ -456,6 +457,27 @@ export type POSTS_QUERYResult = Array<never>;
 // Variable: POST_QUERY
 // Query: *[_type == "post" && slug.current == $slug][0]{  title, body, mainImage}
 export type POST_QUERYResult = null;
+
+// Source: ./src/sanity/query/heroSectionQuery.ts
+// Variable: heroSectionQuery
+// Query: *[_type == "home"][0]['heroSection']{    _id,    sectionId,    image,    header,    profession  }
+export type HeroSectionQueryResult = {
+  _id: null;
+  sectionId: string | null;
+  image: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: 'image';
+  } | null;
+  header: string | null;
+  profession: Array<string> | null;
+} | null;
 
 // Source: ./src/sanity/query/metadataQuery.ts
 // Variable: metadataQuery
@@ -562,6 +584,7 @@ declare module '@sanity/client' {
   interface SanityQueries {
     '*[_type == "post" && defined(slug.current)][0...12]{\n  _id, title, slug\n}': POSTS_QUERYResult;
     '*[_type == "post" && slug.current == $slug][0]{\n  title, body, mainImage\n}': POST_QUERYResult;
+    '\n  *[_type == "home"][0][\'heroSection\']{\n    _id,\n    sectionId,\n    image,\n    header,\n    profession\n  }\n': HeroSectionQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    title,\n    overview,\n    ogImage,\n    footer,\n  }\n': MetadataQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    logo,\n    menuItems[]{\n      _key,\n      _type == "anchorMenuItem" => {\n        _type,\n        "iconURL": icon.asset->url,\n        title,\n        anchorId\n      },\n      // fallback for references\n      _type != "anchorMenuItem" => {\n        "_type": @->_type,\n        "slug": @->slug.current,\n        "title": @->title\n      }\n    }\n  }\n': NavbarQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    socialIcons[]{\n      _key,\n      ...@->{\n        _type,\n        icon,\n        text\n      }\n    },\n  }\n': SocialIconsQueryResult;

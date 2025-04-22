@@ -33,9 +33,9 @@ export default function NavItem({menuItem}: {menuItem: NavbarMenuItem}) {
         {menuItem.iconURL && (
           <ReactSVG
             src={menuItem.iconURL}
-            className={`h-auto w-[18px] ${menuItem.title === activeNavItem ? 'fill-white stroke-white stroke-[0.5px]' : 'fill-secondary'}`}
+            className={`h-auto w-[18px] ${menuItem.title === activeNavItem ? 'fill-white stroke-white stroke-[0.5px]' : ''}`}
             beforeInjection={(svg) => {
-              svg.classList.add('group-hover:fill-white');
+              svg.classList.add('group-hover:fill-white', 'fill-secondary');
             }}
           />
         )}

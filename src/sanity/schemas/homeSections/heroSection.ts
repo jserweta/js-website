@@ -3,6 +3,11 @@ export default {
   type: 'object',
   fields: [
     {
+      title: 'Section ID',
+      name: 'sectionId',
+      type: 'string',
+    },
+    {
       title: 'Image',
       name: 'image',
       type: 'image',
@@ -19,4 +24,4 @@ export default {
       of: [{name: 'profName', type: 'string'}],
     },
   ],
-}
+};
