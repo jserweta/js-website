@@ -1,8 +1,8 @@
 'use client';
 
-import {createContext, Dispatch, ReactNode, SetStateAction, useState} from 'react';
+import {createContext, Dispatch, ReactNode, SetStateAction, useContext, useState} from 'react';
 
-type NavContextType = {
+export type NavContextType = {
   activeNavItem: string;
   setActiveNavItem: Dispatch<SetStateAction<string>>;
 };
@@ -19,3 +19,13 @@ export default function NavProvider({children}: {children: ReactNode}) {
 
   return <NavContext.Provider value={providerValue}>{children}</NavContext.Provider>;
 }
+
+export const useNavContext = () => {
+  const context = useContext(NavContext);
+
+  if (!context) {
+    throw new Error('useNavContext must be used within a NavProvider');
+  }
+
+  return context;
+};

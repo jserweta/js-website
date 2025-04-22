@@ -1,5 +1,6 @@
-@import 'tailwindcss';
 @import url('https://use.typekit.net/xbo5rhh.css');
+
+@import 'tailwindcss';
 
 @theme {
   --font-futura: 'futura-pt', sans-serif;
@@ -39,4 +40,8 @@ body {
   overflow-x: hidden;
   max-width: var(--site-max-width);
   margin: 0 auto;
+}
+
+* {
+  transition-duration: 0.22s;
 }

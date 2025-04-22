@@ -5,6 +5,7 @@ import {handleError} from '@/sanity/lib/handleError';
 import {sanityFetch, SanityLive} from '@/sanity/lib/live';
 import {urlForOpenGraphImage} from '@/sanity/lib/utils';
 import {metadataQuery} from '@/sanity/query/metadataQuery';
+import {navbarQuery} from '@/sanity/query/navbarQuery';
 import type {Metadata} from 'next';
 import {toPlainText, VisualEditing} from 'next-sanity';
 import {draftMode} from 'next/headers';
@@ -35,10 +36,11 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const {data} = await sanityFetch({query: navbarQuery});
   return (
     <div className="bg-background after:bg-background relative mx-auto after:absolute after:top-0 after:right-[calc((100vw-var(--site-max-width))/-2)] after:h-full after:w-[calc(100vw-var(--site-max-width)/2)] after:content-['']">
       <NavProvider>
-        <NavBar />
+        <NavBar data={data} />
         <main className="relative z-10 ml-0 px-10 sm:ml-14 lg:ml-[calc(var(--nav-max-width)/6)] xl:ml-(--nav-max-width) xl:px-14">
           {children}
         </main>

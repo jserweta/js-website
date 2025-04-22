@@ -1,3 +1,7 @@
 export default async function Page() {
-  return <h1>PAGE CONTENT</h1>;
+  return (
+    <section id="test">
+      <h1>HERO SECGION</h1>
+    </section>
+  );
 }

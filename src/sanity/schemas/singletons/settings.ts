@@ -1,5 +1,5 @@
-import {CogIcon} from '@sanity/icons'
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import {CogIcon} from '@sanity/icons';
+import {defineArrayMember, defineField, defineType} from 'sanity';
 
 export default defineType({
   name: 'settings',
@@ -76,13 +76,33 @@ export default defineType({
             {
               type: 'home',
             },
-            // {
-            //   type: "page",
-            // },
-            // { type: "post" },
-            // {
-            //   type: "project",
-            // },
+          ],
+        },
+        {
+          name: 'anchorMenuItem',
+          type: 'object',
+          title: 'Anchor Menu Item',
+          fields: [
+            {
+              name: 'icon',
+              type: 'file',
+              title: 'SVG Icon',
+              options: {
+                accept: 'image/svg+xml',
+              },
+            },
+            {
+              name: 'title',
+              type: 'string',
+              title: 'Label',
+            },
+            {
+              name: 'anchorId',
+              type: 'string',
+              title: "Section ID (e.g. 'about', 'services')",
+              description: 'This should match the id of the section in your HTML (e.g. #about)',
+              validation: (Rule) => Rule.required(),
+            },
           ],
         },
       ],
@@ -135,7 +155,7 @@ export default defineType({
       return {
         title: 'Settings',
         subtitle: 'Logo, Menu Items, Footer Info, and Open Graph Image',
-      }
+      };
     },
   },
-})
+});
