@@ -1255,6 +1255,13 @@
             "value": "contactSection"
           }
         },
+        "sectionId": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
         "sectionHeader": {
           "type": "objectAttribute",
           "value": {
@@ -1710,6 +1717,13 @@
             "value": "educationSection"
           }
         },
+        "sectionId": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
         "sectionHeader": {
           "type": "objectAttribute",
           "value": {
@@ -1777,6 +1791,13 @@
             "type": "string",
             "value": "aboutSection"
           }
+        },
+        "sectionId": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
         },
         "sectionHeader": {
           "type": "objectAttribute",

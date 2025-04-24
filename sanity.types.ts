@@ -207,6 +207,7 @@ export type Home = {
 
 export type ContactSection = {
   _type: 'contactSection';
+  sectionId?: string;
   sectionHeader?: SectionHeader;
   content?: string;
   contactDetails?: Array<
@@ -289,6 +290,7 @@ export type ExperienceSection = {
 
 export type EducationSection = {
   _type: 'educationSection';
+  sectionId?: string;
   sectionHeader?: SectionHeader;
   eduList?: Array<{
     degree?: string;
@@ -300,6 +302,7 @@ export type EducationSection = {
 
 export type AboutSection = {
   _type: 'aboutSection';
+  sectionId?: string;
   sectionHeader?: SectionHeader;
   content?: Array<{
     children?: Array<{
@@ -450,13 +453,31 @@ export type AllSanitySchemaTypes =
   | SanityImageMetadata
   | HeroSection;
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ./src/sanity/query/getPosts.ts
-// Variable: POSTS_QUERY
-// Query: *[_type == "post" && defined(slug.current)][0...12]{  _id, title, slug}
-export type POSTS_QUERYResult = Array<never>;
-// Variable: POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{  title, body, mainImage}
-export type POST_QUERYResult = null;
+// Source: ./src/sanity/query/footerInfoQuery.ts
+// Variable: footerInfoQuery
+// Query: *[_type == "settings"][0]{    _id,    _type,    footer,  }
+export type FooterInfoQueryResult = {
+  _id: string;
+  _type: 'settings';
+  footer: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: 'span';
+      _key: string;
+    }>;
+    style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+    listItem?: 'bullet' | 'number';
+    markDefs?: Array<{
+      href?: string;
+      _type: 'link';
+      _key: string;
+    }>;
+    level?: number;
+    _type: 'block';
+    _key: string;
+  }> | null;
+} | null;
 
 // Source: ./src/sanity/query/heroSectionQuery.ts
 // Variable: heroSectionQuery
@@ -582,8 +603,7 @@ export type SocialIconsQueryResult = {
 
 declare module '@sanity/client' {
   interface SanityQueries {
-    '*[_type == "post" && defined(slug.current)][0...12]{\n  _id, title, slug\n}': POSTS_QUERYResult;
-    '*[_type == "post" && slug.current == $slug][0]{\n  title, body, mainImage\n}': POST_QUERYResult;
+    '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    footer,\n  }\n': FooterInfoQueryResult;
     '\n  *[_type == "home"][0][\'heroSection\']{\n    _id,\n    sectionId,\n    image,\n    header,\n    profession\n  }\n': HeroSectionQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    title,\n    overview,\n    ogImage,\n    footer,\n  }\n': MetadataQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    logo,\n    menuItems[]{\n      _key,\n      _type == "anchorMenuItem" => {\n        _type,\n        "iconURL": icon.asset->url,\n        title,\n        anchorId\n      },\n      // fallback for references\n      _type != "anchorMenuItem" => {\n        "_type": @->_type,\n        "slug": @->slug.current,\n        "title": @->title\n      }\n    }\n  }\n': NavbarQueryResult;

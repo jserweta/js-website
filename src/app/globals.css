@@ -50,3 +50,17 @@ body {
     color: var(--color-white);
   }
 }
+
+.ityped-cursor {
+  animation: blink 1s infinite;
+  color: var(--color-white);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

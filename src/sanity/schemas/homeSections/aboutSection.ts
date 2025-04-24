@@ -3,6 +3,11 @@ export default {
   type: 'object',
   fields: [
     {
+      title: 'Section ID',
+      name: 'sectionId',
+      type: 'string',
+    },
+    {
       name: 'sectionHeader',
       title: 'Section header',
       type: 'sectionHeader',
@@ -30,4 +35,4 @@ export default {
       of: [{type: 'block'}],
     },
   ],
-}
+};

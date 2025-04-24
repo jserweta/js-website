@@ -1,4 +1,5 @@
 import {DraftModeToast} from '@/components/DraftModeToast';
+import Footer from '@/components/Footer';
 import NavBar from '@/components/NavBar';
 import NavProvider from '@/context/NavContext';
 import {handleError} from '@/sanity/lib/handleError';
@@ -45,6 +46,7 @@ export default async function RootLayout({
           {children}
         </main>
       </NavProvider>
+      <Footer />
 
       <SanityLive onError={handleError} />
       {(await draftMode()).isEnabled && (

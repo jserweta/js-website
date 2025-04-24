@@ -1,3 +1,4 @@
+import {HighlightDecorator} from '@/sanity/components/HighlightDecorator';
 import {CogIcon} from '@sanity/icons';
 import {defineArrayMember, defineField, defineType} from 'sanity';
 
@@ -134,6 +135,16 @@ export default defineType({
                     title: 'Url',
                   },
                 ],
+              },
+            ],
+            decorators: [
+              {
+                title: 'Highlight',
+                value: 'highlight',
+                icon: () => 'H',
+                component: ({children}: {children: React.ReactNode}) => (
+                  <HighlightDecorator>{children}</HighlightDecorator>
+                ),
               },
             ],
           },

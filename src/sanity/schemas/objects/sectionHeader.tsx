@@ -1,8 +1,4 @@
-import React from 'react'
-
-const HighlightDecorator = ({children}: {children: React.ReactNode}) => (
-  <span className="text-primary">{children}</span>
-)
+import {HighlightDecorator} from '@/sanity/components/HighlightDecorator';
 
 export default {
   name: 'sectionHeader',
@@ -22,7 +18,9 @@ export default {
                 title: 'Highlight',
                 value: 'highlight',
                 icon: () => 'H',
-                component: HighlightDecorator,
+                component: ({children}: {children: React.ReactNode}) => (
+                  <HighlightDecorator>{children}</HighlightDecorator>
+                ),
               },
             ],
           },
@@ -35,4 +33,4 @@ export default {
       type: 'string',
     },
   ],
-}
+};
