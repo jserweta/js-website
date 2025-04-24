@@ -1,6 +1,6 @@
 import {sanityFetch} from '@/sanity/lib/live';
 import {footerInfoQuery} from '@/sanity/query/footerInfoQuery';
-import {PortableTextBlock} from 'next-sanity';
+import type {PortableTextBlock} from 'next-sanity';
 import {CustomPortableText} from './CustomPortableText';
 
 export default async function Footer() {

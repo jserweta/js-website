@@ -453,6 +453,83 @@ export type AllSanitySchemaTypes =
   | SanityImageMetadata
   | HeroSection;
 export declare const internalGroqTypeReferenceTo: unique symbol;
+// Source: ./src/sanity/query/aboutMeSectionQuery.ts
+// Variable: aboutSectionQuery
+// Query: *[_type == "home"][0]['aboutSection']{    _id,    sectionId,    sectionHeader {      mainHeader,      backgroundHeader    },    content,    cta,    image,    imageCaption  }
+export type AboutSectionQueryResult = {
+  _id: null;
+  sectionId: string | null;
+  sectionHeader: {
+    mainHeader: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: 'span';
+        _key: string;
+      }>;
+      style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+      listItem?: 'bullet' | 'number';
+      markDefs?: Array<{
+        href?: string;
+        _type: 'link';
+        _key: string;
+      }>;
+      level?: number;
+      _type: 'block';
+      _key: string;
+    }> | null;
+    backgroundHeader: string | null;
+  } | null;
+  content: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: 'span';
+      _key: string;
+    }>;
+    style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+    listItem?: 'bullet' | 'number';
+    markDefs?: Array<{
+      href?: string;
+      _type: 'link';
+      _key: string;
+    }>;
+    level?: number;
+    _type: 'block';
+    _key: string;
+  }> | null;
+  cta: string | null;
+  image: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: 'image';
+  } | null;
+  imageCaption: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: 'span';
+      _key: string;
+    }>;
+    style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+    listItem?: 'bullet' | 'number';
+    markDefs?: Array<{
+      href?: string;
+      _type: 'link';
+      _key: string;
+    }>;
+    level?: number;
+    _type: 'block';
+    _key: string;
+  }> | null;
+} | null;
+
 // Source: ./src/sanity/query/footerInfoQuery.ts
 // Variable: footerInfoQuery
 // Query: *[_type == "settings"][0]{    _id,    _type,    footer,  }
@@ -603,6 +680,7 @@ export type SocialIconsQueryResult = {
 
 declare module '@sanity/client' {
   interface SanityQueries {
+    '\n  *[_type == "home"][0][\'aboutSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    content,\n    cta,\n    image,\n    imageCaption\n  }\n': AboutSectionQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    footer,\n  }\n': FooterInfoQueryResult;
     '\n  *[_type == "home"][0][\'heroSection\']{\n    _id,\n    sectionId,\n    image,\n    header,\n    profession\n  }\n': HeroSectionQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    title,\n    overview,\n    ogImage,\n    footer,\n  }\n': MetadataQueryResult;
