@@ -42,7 +42,7 @@ export default async function RootLayout({
     <div className="bg-background after:bg-background relative mx-auto after:absolute after:top-0 after:right-[calc((100vw-var(--site-max-width))/-2)] after:h-full after:w-[calc(100vw-var(--site-max-width)/2)] after:content-['']">
       <NavProvider>
         <NavBar data={data} />
-        <main className="relative z-10 ml-0 px-10 sm:ml-14 lg:ml-[calc(var(--nav-max-width)/6)] xl:ml-(--nav-max-width) xl:px-14">
+        <main className="relative z-10 ml-0 px-10 sm:ml-14 lg:ml-[calc(var(--site-max-width)/6)] xl:ml-(--nav-max-width) xl:px-14">
           {children}
         </main>
       </NavProvider>

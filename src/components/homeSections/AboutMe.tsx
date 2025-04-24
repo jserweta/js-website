@@ -23,38 +23,39 @@ export default function AboutMe({
     <section
       id={sectionId || ''}
       ref={sectionRef}
-      className="flex h-screen flex-col justify-center"
+      className="flex h-auto flex-col justify-center md:h-screen"
     >
       {mainHeader && backgroundHeader && (
         <SectionHeader
           header={mainHeader as PortableTextBlock[]}
           backgroundHeader={backgroundHeader}
-          className="mb-12"
+          className="top-[5px] mb-12 text-[39px] sm:top-auto sm:text-[45px]"
         />
       )}
 
-      <div className="flex items-center justify-center gap-16">
-        <div className="md:mt-10">
+      <div className="flex flex-col-reverse items-center justify-center gap-16 md:flex-row">
+        <div className="mt-10 md:mt-0">
           <p className="mb-12 text-sm font-[300]">{content}</p>
           <div className="flex items-center justify-end gap-11">
             <h3 className="font-futura text-primary m-0 text-2xl">{cta}</h3>
             <SocialMediaIcons socialIconsData={socialIconsData} />
           </div>
         </div>
-        <div className="relative">
+        <div className="relative w-full sm:w-3/5">
           {image && (
             <ImageWrapper
+              width={630}
+              height={840}
               image={image}
               alt="My Portrait"
-              size="300px"
-              width={285}
-              height={380}
-              classesWrapper="h-auto sm:w-full md:w-[285px]"
+              classesWrapper="h-auto w-full md:w-[285px] md:h-[380px]"
             />
           )}
-          <div className="absolute bottom-[-20%] left-[-15%] z-10 m-0 flex h-[166px] w-[172px] items-center justify-center after:absolute after:top-0 after:left-0 after:-z-10 after:h-full after:w-full after:bg-[url('/background-path.svg')] after:content-['']">
+          <div className="absolute bottom-[-15%] left-[-5%] z-10 m-0 flex h-[166px] w-[172px] items-center justify-center after:absolute after:top-0 after:left-0 after:-z-10 after:h-full after:w-full after:bg-[url('/background-path.svg')] after:content-[''] sm:left-[-15%] sm:after:scale-100">
             <p className="font-futura relative m-0 text-center text-[28px] leading-6 font-[700]">
-              {imageCaption} <br /> <span className="text-[21px] font-[300]">of experience</span>
+              {imageCaption}
+              <br />
+              <span className="text-[21px] font-[400]">of experience</span>
             </p>
           </div>
         </div>
