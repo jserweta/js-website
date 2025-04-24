@@ -1,5 +1,6 @@
 import AboutMe from '@/components/homeSections/AboutMe';
 import Hero from '@/components/homeSections/Hero';
+import Resume from '@/components/homeSections/Resume';
 import {sanityFetch} from '@/sanity/lib/live';
 import {aboutSectionQuery} from '@/sanity/query/aboutMeSectionQuery';
 import {heroSectionQuery} from '@/sanity/query/heroSectionQuery';
@@ -14,6 +15,7 @@ export default async function Page() {
     <>
       <Hero data={heroSectionData} />
       <AboutMe data={aboutMeSectionData} socialIconsData={socialIconsData} />
+      <Resume />
     </>
   );
 }

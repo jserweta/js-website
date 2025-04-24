@@ -4,10 +4,12 @@ import {CustomPortableText} from './CustomPortableText';
 
 export default function SectionHeader({
   header,
+  headerString,
   backgroundHeader,
   className,
 }: {
-  header: PortableTextBlock[];
+  header?: PortableTextBlock[];
+  headerString?: string;
   backgroundHeader: string;
   className?: string;
 }) {
@@ -17,7 +19,8 @@ export default function SectionHeader({
         {backgroundHeader}
       </span>
       <div className="font-futura relative z-10 text-left text-[32px] font-[400] sm:text-[40px]">
-        <CustomPortableText value={header} />
+        {header && <CustomPortableText value={header} />}
+        {headerString && <p>{headerString}</p>}
       </div>
     </div>
   );
