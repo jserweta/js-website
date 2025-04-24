@@ -15,8 +15,7 @@ export default {
     {
       name: 'content',
       title: 'Description about me',
-      type: 'array',
-      of: [{type: 'block'}],
+      type: 'text',
     },
     {
       name: 'cta',
@@ -31,8 +30,7 @@ export default {
     {
       name: 'imageCaption',
       title: 'Image caption',
-      type: 'array',
-      of: [{type: 'block'}],
+      type: 'string',
     },
   ],
 };

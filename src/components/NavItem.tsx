@@ -27,7 +27,7 @@ export default function NavItem({menuItem}: {menuItem: NavbarMenuItem}) {
   if (isAnchor) {
     return (
       <div
-        className={`${menuItem.title === activeNavItem ? 'text-white' : 'text-secondary'} group flex items-center gap-1.5 hover:translate-x-[5px] hover:scale-105 hover:cursor-pointer`}
+        className={`${menuItem.title === activeNavItem ? 'text-white' : 'text-secondary'} group flex items-center gap-5 hover:translate-x-[5px] hover:scale-105 hover:cursor-pointer`}
         onClick={handleClick}
       >
         {menuItem.iconURL && (

@@ -1,15 +1,18 @@
+import {cn} from '@/lib/utils/cn';
 import type {PortableTextBlock} from 'next-sanity';
 import {CustomPortableText} from './CustomPortableText';
 
 export default function SectionHeader({
   header,
   backgroundHeader,
+  className,
 }: {
   header: PortableTextBlock[];
   backgroundHeader: string;
+  className?: string;
 }) {
   return (
-    <div className="relative mb-20 w-full">
+    <div className={cn('relative mb-20 w-full', className)}>
       <span className="font-montserrat text-background text-custom-stroke absolute top-[-25px] left-0 z-0 text-[45px] leading-[88px] font-[900] opacity-[0.2] sm:top-[-35px] sm:text-[60px] md:top-[-45px] md:text-[80px]">
         {backgroundHeader}
       </span>

@@ -6,13 +6,13 @@ import ImageWrapper from '../ImageWrapper';
 import MotionText from '../MotionText';
 
 export default function Hero({data}: {data: HeroSectionQueryResult}) {
-  const {sectionId = '', header = '', profession, image} = data || {};
-  const homeRef = useNav('Home');
+  const {sectionId, header, profession, image} = data || {};
+  const sectionRef = useNav('Home');
 
   return (
     <section
-      id={`${sectionId}`}
-      ref={homeRef}
+      id={sectionId || ''}
+      ref={sectionRef}
       className="font-futura flex h-screen items-center justify-center pt-7 pb-7 text-center md:pt-0 md:pb-0"
     >
       <div className="flex flex-col items-center justify-center">

@@ -1,4 +1,4 @@
-import {defineQuery} from 'next-sanity'
+import {defineQuery} from 'next-sanity';
 
 export const socialIconsQuery = defineQuery(`
   *[_type == "settings"][0]{
@@ -6,11 +6,8 @@ export const socialIconsQuery = defineQuery(`
     _type,
     socialIcons[]{
       _key,
-      ...@->{
-        _type,
-        icon,
-        text
-      }
+      "iconURL": icon.asset->url,
+      url
     },
   }
-`)
+`);

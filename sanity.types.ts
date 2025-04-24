@@ -68,7 +68,7 @@ export type IconWithText = {
     crop?: SanityImageCrop;
     _type: 'image';
   };
-  text?: string;
+  url?: string;
 };
 
 export type SectionHeader = {
@@ -304,24 +304,7 @@ export type AboutSection = {
   _type: 'aboutSection';
   sectionId?: string;
   sectionHeader?: SectionHeader;
-  content?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: 'span';
-      _key: string;
-    }>;
-    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
-    listItem?: 'bullet' | 'number';
-    markDefs?: Array<{
-      href?: string;
-      _type: 'link';
-      _key: string;
-    }>;
-    level?: number;
-    _type: 'block';
-    _key: string;
-  }>;
+  content?: string;
   cta?: string;
   image?: {
     asset?: {
@@ -334,24 +317,7 @@ export type AboutSection = {
     crop?: SanityImageCrop;
     _type: 'image';
   };
-  imageCaption?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: 'span';
-      _key: string;
-    }>;
-    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
-    listItem?: 'bullet' | 'number';
-    markDefs?: Array<{
-      href?: string;
-      _type: 'link';
-      _key: string;
-    }>;
-    level?: number;
-    _type: 'block';
-    _key: string;
-  }>;
+  imageCaption?: string;
 };
 
 export type SanityImageCrop = {
@@ -480,24 +446,7 @@ export type AboutSectionQueryResult = {
     }> | null;
     backgroundHeader: string | null;
   } | null;
-  content: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: 'span';
-      _key: string;
-    }>;
-    style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
-    listItem?: 'bullet' | 'number';
-    markDefs?: Array<{
-      href?: string;
-      _type: 'link';
-      _key: string;
-    }>;
-    level?: number;
-    _type: 'block';
-    _key: string;
-  }> | null;
+  content: string | null;
   cta: string | null;
   image: {
     asset?: {
@@ -510,24 +459,7 @@ export type AboutSectionQueryResult = {
     crop?: SanityImageCrop;
     _type: 'image';
   } | null;
-  imageCaption: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: 'span';
-      _key: string;
-    }>;
-    style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
-    listItem?: 'bullet' | 'number';
-    markDefs?: Array<{
-      href?: string;
-      _type: 'link';
-      _key: string;
-    }>;
-    level?: number;
-    _type: 'block';
-    _key: string;
-  }> | null;
+  imageCaption: string | null;
 } | null;
 
 // Source: ./src/sanity/query/footerInfoQuery.ts
@@ -669,12 +601,14 @@ export type NavbarQueryResult = {
 
 // Source: ./src/sanity/query/socialIconsQuery.ts
 // Variable: socialIconsQuery
-// Query: *[_type == "settings"][0]{    _id,    _type,    socialIcons[]{      _key,      ...@->{        _type,        icon,        text      }    },  }
+// Query: *[_type == "settings"][0]{    _id,    _type,    socialIcons[]{      _key,      "iconURL": icon.asset->url,      url    },  }
 export type SocialIconsQueryResult = {
   _id: string;
   _type: 'settings';
   socialIcons: Array<{
     _key: string;
+    iconURL: string | null;
+    url: string | null;
   }> | null;
 } | null;
 
@@ -685,6 +619,6 @@ declare module '@sanity/client' {
     '\n  *[_type == "home"][0][\'heroSection\']{\n    _id,\n    sectionId,\n    image,\n    header,\n    profession\n  }\n': HeroSectionQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    title,\n    overview,\n    ogImage,\n    footer,\n  }\n': MetadataQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    logo,\n    menuItems[]{\n      _key,\n      _type == "anchorMenuItem" => {\n        _type,\n        "iconURL": icon.asset->url,\n        title,\n        anchorId\n      },\n      // fallback for references\n      _type != "anchorMenuItem" => {\n        "_type": @->_type,\n        "slug": @->slug.current,\n        "title": @->title\n      }\n    }\n  }\n': NavbarQueryResult;
-    '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    socialIcons[]{\n      _key,\n      ...@->{\n        _type,\n        icon,\n        text\n      }\n    },\n  }\n': SocialIconsQueryResult;
+    '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    socialIcons[]{\n      _key,\n      "iconURL": icon.asset->url,\n      url\n    },\n  }\n': SocialIconsQueryResult;
   }
 }
