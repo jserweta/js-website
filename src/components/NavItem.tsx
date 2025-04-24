@@ -8,7 +8,15 @@ import {NavbarQueryResult} from '../../sanity.types';
 
 type NavbarMenuItem = NonNullable<NonNullable<NavbarQueryResult>['menuItems']>[number];
 
-export default function NavItem({menuItem}: {menuItem: NavbarMenuItem}) {
+export default function NavItem({
+  menuItem,
+  isOpen,
+  menuItemClick,
+}: {
+  menuItem: NavbarMenuItem;
+  isOpen: boolean;
+  menuItemClick: () => void;
+}) {
   const {activeNavItem, setActiveNavItem} = useNavContext();
 
   const isAnchor = menuItem._type === 'anchorMenuItem';
@@ -22,6 +30,7 @@ export default function NavItem({menuItem}: {menuItem: NavbarMenuItem}) {
         el.scrollIntoView({behavior: 'smooth'});
       }
     }
+    menuItemClick();
   };
 
   if (isAnchor) {
@@ -39,7 +48,9 @@ export default function NavItem({menuItem}: {menuItem: NavbarMenuItem}) {
             }}
           />
         )}
-        <p className="font-futura m-0 inline-block text-xl leading-5 group-hover:text-white">
+        <p
+          className={`font-futura m-0 text-xl leading-5 group-hover:text-white ${isOpen ? 'block' : 'hidden lg:inline-block'}`}
+        >
           {menuItem.title}
         </p>
       </div>
