@@ -1,4 +1,5 @@
 import {urlForImage} from '@/sanity/lib/utils';
+import {FitMode} from '@sanity/image-url/lib/types/types';
 import Image from 'next/image';
 
 type ImageWrapperProps = {
@@ -8,6 +9,7 @@ type ImageWrapperProps = {
   'height'?: number;
   'size'?: string;
   'classesWrapper'?: string;
+  'fit'?: FitMode;
   'data-sanity'?: string;
 };
 
@@ -18,9 +20,10 @@ export default function ImageWrapper({
   height = 2000,
   size = '100vw',
   classesWrapper,
+  fit = 'crop',
   ...props
 }: ImageWrapperProps) {
-  const imageUrl = image && urlForImage(image)?.height(height).width(width).fit('crop').url();
+  const imageUrl = image && urlForImage(image)?.height(height).width(width).fit(fit).url();
 
   return (
     <figure className={classesWrapper} data-sanity={props['data-sanity']}>

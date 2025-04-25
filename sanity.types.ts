@@ -499,7 +499,7 @@ export type EducationSectionQueryResult = {
 
 // Source: ./src/sanity/query/experienceSectionQuery.ts
 // Variable: experienceSectionQuery
-// Query: *[_type == "home"][0]['experienceSection']{    _id,    sectionId,    sectionHeader {      mainHeader,      backgroundHeader    },    experienceList[] {      _key,      jobPosition,      workStartDate,      workEndDate,      companyName,      "companyLogoURL": companyLogo.asset->url    },  }
+// Query: *[_type == "home"][0]['experienceSection']{    _id,    sectionId,    sectionHeader {      mainHeader,      backgroundHeader    },    experienceList[] {      _key,      jobPosition,      workStartDate,      workEndDate,      companyName,      companyLogo,      "logoDimensions": companyLogo.asset->metadata.dimensions    },  }
 export type ExperienceSectionQueryResult = {
   _id: null;
   sectionId: null;
@@ -530,7 +530,18 @@ export type ExperienceSectionQueryResult = {
     workStartDate: string | null;
     workEndDate: string | null;
     companyName: string | null;
-    companyLogoURL: string | null;
+    companyLogo: {
+      asset?: {
+        _ref: string;
+        _type: 'reference';
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: 'image';
+    } | null;
+    logoDimensions: SanityImageDimensions | null;
   }> | null;
 } | null;
 
@@ -722,7 +733,7 @@ declare module '@sanity/client' {
   interface SanityQueries {
     '\n  *[_type == "home"][0][\'aboutSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    content,\n    cta,\n    image,\n    imageCaption\n  }\n': AboutSectionQueryResult;
     '\n  *[_type == "home"][0][\'educationSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    eduList[] {\n      _key,\n      degree,\n      graduationDate,\n      content,\n    },\n  }\n': EducationSectionQueryResult;
-    '\n  *[_type == "home"][0][\'experienceSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    experienceList[] {\n      _key,\n      jobPosition,\n      workStartDate,\n      workEndDate,\n      companyName,\n      "companyLogoURL": companyLogo.asset->url\n    },\n  }\n': ExperienceSectionQueryResult;
+    '\n  *[_type == "home"][0][\'experienceSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    experienceList[] {\n      _key,\n      jobPosition,\n      workStartDate,\n      workEndDate,\n      companyName,\n      companyLogo,\n      "logoDimensions": companyLogo.asset->metadata.dimensions\n    },\n  }\n': ExperienceSectionQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    footer,\n  }\n': FooterInfoQueryResult;
     '\n  *[_type == "home"][0][\'heroSection\']{\n    _id,\n    sectionId,\n    image,\n    header,\n    profession\n  }\n': HeroSectionQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    title,\n    overview,\n    ogImage,\n    footer,\n  }\n': MetadataQueryResult;

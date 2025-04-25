@@ -8,7 +8,7 @@ import {
 } from '../../../sanity.types';
 import ResumeCta from './ResumeCta';
 import ResumeEducation from './ResumeEducation';
-import ResumeExperience from './ResumeExperience';
+import ResumeExperience from './resumeExperience/ResumeExperience';
 import ResumeSkills from './ResumeSkills';
 
 export default function Resume({
