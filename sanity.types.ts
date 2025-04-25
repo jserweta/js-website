@@ -462,6 +462,17 @@ export type AboutSectionQueryResult = {
   imageCaption: string | null;
 } | null;
 
+// Source: ./src/sanity/query/ctaSectionQuery.ts
+// Variable: ctaSectionQuery
+// Query: *[_type == "home"][0]['resumeCTASection']{    _id,    ctaContent,    ctaButton,    buttonLink,    "downloadFile": downloadFile.asset->url  }
+export type CtaSectionQueryResult = {
+  _id: null;
+  ctaContent: string | null;
+  ctaButton: string | null;
+  buttonLink: string | null;
+  downloadFile: string | null;
+} | null;
+
 // Source: ./src/sanity/query/educationSectionQuery.ts
 // Variable: educationSectionQuery
 // Query: *[_type == "home"][0]['educationSection']{    _id,    sectionId,    sectionHeader {      mainHeader,      backgroundHeader    },    eduList[] {      _key,      degree,      graduationDate,      content,    },  }
@@ -732,6 +743,7 @@ export type SocialIconsQueryResult = {
 declare module '@sanity/client' {
   interface SanityQueries {
     '\n  *[_type == "home"][0][\'aboutSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    content,\n    cta,\n    image,\n    imageCaption\n  }\n': AboutSectionQueryResult;
+    '\n  *[_type == "home"][0][\'resumeCTASection\']{\n    _id,\n    ctaContent,\n    ctaButton,\n    buttonLink,\n    "downloadFile": downloadFile.asset->url\n  }\n': CtaSectionQueryResult;
     '\n  *[_type == "home"][0][\'educationSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    eduList[] {\n      _key,\n      degree,\n      graduationDate,\n      content,\n    },\n  }\n': EducationSectionQueryResult;
     '\n  *[_type == "home"][0][\'experienceSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    experienceList[] {\n      _key,\n      jobPosition,\n      workStartDate,\n      workEndDate,\n      companyName,\n      companyLogo,\n      "logoDimensions": companyLogo.asset->metadata.dimensions\n    },\n  }\n': ExperienceSectionQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    footer,\n  }\n': FooterInfoQueryResult;

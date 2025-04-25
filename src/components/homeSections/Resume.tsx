@@ -2,6 +2,7 @@
 
 import {useNav} from '@/app/hooks/useNav';
 import {
+  CtaSectionQueryResult,
   EducationSectionQueryResult,
   ExperienceSectionQueryResult,
   SkillsSectionQueryResult,
@@ -15,10 +16,12 @@ export default function Resume({
   educationSectionData,
   experienceSectionData,
   skillsSectionData,
+  ctaSectionData,
 }: {
   educationSectionData: EducationSectionQueryResult;
   experienceSectionData: ExperienceSectionQueryResult;
   skillsSectionData: SkillsSectionQueryResult;
+  ctaSectionData: CtaSectionQueryResult;
 }) {
   const sectionRef = useNav('Resume');
   const {sectionId} = educationSectionData || {};
@@ -28,7 +31,7 @@ export default function Resume({
       <ResumeEducation data={educationSectionData} />
       <ResumeExperience data={experienceSectionData} />
       <ResumeSkills data={skillsSectionData} />
-      <ResumeCta />
+      <ResumeCta data={ctaSectionData} />
     </section>
   );
 }

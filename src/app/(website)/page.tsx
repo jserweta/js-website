@@ -3,6 +3,7 @@ import Hero from '@/components/homeSections/Hero';
 import Resume from '@/components/homeSections/Resume';
 import {sanityFetch} from '@/sanity/lib/live';
 import {aboutSectionQuery} from '@/sanity/query/aboutMeSectionQuery';
+import {ctaSectionQuery} from '@/sanity/query/ctaSectionQuery';
 import {educationSectionQuery} from '@/sanity/query/educationSectionQuery';
 import {experienceSectionQuery} from '@/sanity/query/experienceSectionQuery';
 import {heroSectionQuery} from '@/sanity/query/heroSectionQuery';
@@ -16,6 +17,7 @@ export default async function Page() {
   const {data: educationSectionData} = await sanityFetch({query: educationSectionQuery});
   const {data: experienceSectionData} = await sanityFetch({query: experienceSectionQuery});
   const {data: skillsSectionData} = await sanityFetch({query: skillsSectionQuery});
+  const {data: ctaSectionData} = await sanityFetch({query: ctaSectionQuery});
 
   return (
     <>
@@ -25,6 +27,7 @@ export default async function Page() {
         educationSectionData={educationSectionData}
         experienceSectionData={experienceSectionData}
         skillsSectionData={skillsSectionData}
+        ctaSectionData={ctaSectionData}
       />
     </>
   );
