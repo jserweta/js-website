@@ -32,17 +32,17 @@ export default function ExperienceItem({
   }
 
   return (
-    <div className="resumeSection__experienceItem group after:bg-card hover:after:bg-card-hover relative flex w-full flex-col px-5 pt-0 pb-7 after:absolute after:top-auto after:right-0 after:bottom-0 after:-z-10 after:h-[85%] after:w-full after:content-[''] sm:table sm:py-12 sm:pr-2.5 sm:pl-0 sm:after:top-0 sm:after:h-auto sm:after:w-[85%] md:pr-7 xl:after:w-[80%]">
-      <div className="highlight table-cell w-full text-center align-middle sm:w-[130px] sm:text-left">
+    <div className="group after:bg-card hover:after:bg-card-hover relative flex w-full flex-col px-5 pt-0 pb-7 after:absolute after:top-auto after:right-0 after:bottom-0 after:-z-10 after:h-[85%] after:w-full after:content-[''] sm:table sm:py-12 sm:pr-2.5 sm:pl-0 sm:after:top-0 sm:after:h-auto sm:after:w-[85%] md:pr-7 xl:after:w-[80%]">
+      <div className="table-cell w-full text-center align-middle sm:w-[130px] sm:text-left">
         <h2 className="text-muted group-hover:text-primary m-0 text-center text-7xl leading-[72px] font-[500] sm:text-left">
           {yearStart}
         </h2>
         <p className="text-secondary mt-1 mb-3.5 text-center text-sm sm:text-right">{workPeriod}</p>
       </div>
 
-      <div className="content table-cell pl-7 align-middle">
+      <div className="table-cell pl-7 align-middle">
         <h3 className="font-futura mt-0 mb-5 text-2xl font-[500]">{jobPosition}</h3>
-        <div className="company flex items-center gap-3.5">
+        <div className="flex items-center gap-3.5">
           {companyLogo && (
             <ImageWrapper
               image={companyLogo}

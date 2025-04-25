@@ -16,7 +16,7 @@ export default function ResumeExperience({data}: {data: ExperienceSectionQueryRe
         />
       )}
       {experienceList && experienceList.length > 0 && (
-        <div className="resumeSection__experienceItems grid grid-cols-1 gap-7 xl:grid-cols-2 xl:gap-20">
+        <div className="grid grid-cols-1 gap-7 xl:grid-cols-2 xl:gap-20">
           {experienceList.map(
             (
               item: NonNullable<NonNullable<ExperienceSectionQueryResult>['experienceList']>[number]
