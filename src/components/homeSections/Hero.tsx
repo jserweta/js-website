@@ -11,7 +11,7 @@ export default function Hero({data}: {data: HeroSectionQueryResult}) {
 
   return (
     <section
-      id={sectionId || ''}
+      id={sectionId || 'home'}
       ref={sectionRef}
       className="font-futura flex h-screen items-center justify-center pt-7 pb-7 text-center md:pt-0 md:pb-0"
     >

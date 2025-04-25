@@ -4,6 +4,6 @@ export default {
   type: 'object',
   fields: [
     {title: 'Icon', name: 'icon', type: 'image'},
-    {title: 'URL', name: 'url', type: 'string'},
+    {title: 'URL/Text', name: 'url', type: 'string'},
   ],
 };

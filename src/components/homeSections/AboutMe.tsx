@@ -20,7 +20,7 @@ export default function AboutMe({
 
   return (
     <section
-      id={sectionId || ''}
+      id={sectionId || 'about-me'}
       ref={sectionRef}
       className="flex h-auto flex-col justify-center md:h-screen"
     >

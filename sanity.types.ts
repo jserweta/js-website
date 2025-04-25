@@ -462,6 +462,78 @@ export type AboutSectionQueryResult = {
   imageCaption: string | null;
 } | null;
 
+// Source: ./src/sanity/query/educationSectionQuery.ts
+// Variable: educationSectionQuery
+// Query: *[_type == "home"][0]['educationSection']{    _id,    sectionId,    sectionHeader {      mainHeader,      backgroundHeader    },    eduList[] {      _key,      degree,      graduationDate,      content,    },  }
+export type EducationSectionQueryResult = {
+  _id: null;
+  sectionId: string | null;
+  sectionHeader: {
+    mainHeader: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: 'span';
+        _key: string;
+      }>;
+      style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+      listItem?: 'bullet' | 'number';
+      markDefs?: Array<{
+        href?: string;
+        _type: 'link';
+        _key: string;
+      }>;
+      level?: number;
+      _type: 'block';
+      _key: string;
+    }> | null;
+    backgroundHeader: string | null;
+  } | null;
+  eduList: Array<{
+    _key: string;
+    degree: string | null;
+    graduationDate: string | null;
+    content: string | null;
+  }> | null;
+} | null;
+
+// Source: ./src/sanity/query/experienceSectionQuery.ts
+// Variable: experienceSectionQuery
+// Query: *[_type == "home"][0]['experienceSection']{    _id,    sectionId,    sectionHeader {      mainHeader,      backgroundHeader    },    experienceList[] {      _key,      jobPosition,      workStartDate,      workEndDate,      companyName,      "companyLogoURL": companyLogo.asset->url    },  }
+export type ExperienceSectionQueryResult = {
+  _id: null;
+  sectionId: null;
+  sectionHeader: {
+    mainHeader: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: 'span';
+        _key: string;
+      }>;
+      style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+      listItem?: 'bullet' | 'number';
+      markDefs?: Array<{
+        href?: string;
+        _type: 'link';
+        _key: string;
+      }>;
+      level?: number;
+      _type: 'block';
+      _key: string;
+    }> | null;
+    backgroundHeader: string | null;
+  } | null;
+  experienceList: Array<{
+    _key: string;
+    jobPosition: string | null;
+    workStartDate: string | null;
+    workEndDate: string | null;
+    companyName: string | null;
+    companyLogoURL: string | null;
+  }> | null;
+} | null;
+
 // Source: ./src/sanity/query/footerInfoQuery.ts
 // Variable: footerInfoQuery
 // Query: *[_type == "settings"][0]{    _id,    _type,    footer,  }
@@ -599,6 +671,40 @@ export type NavbarQueryResult = {
   > | null;
 } | null;
 
+// Source: ./src/sanity/query/skillsSectionQuery.ts
+// Variable: skillsSectionQuery
+// Query: *[_type == "home"][0]['skillsSection']{    _id,    sectionId,    sectionHeader {      mainHeader,      backgroundHeader    },    skillsList[] {      _key,      "iconURL": icon.asset->url,      url    },  }
+export type SkillsSectionQueryResult = {
+  _id: null;
+  sectionId: null;
+  sectionHeader: {
+    mainHeader: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: 'span';
+        _key: string;
+      }>;
+      style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+      listItem?: 'bullet' | 'number';
+      markDefs?: Array<{
+        href?: string;
+        _type: 'link';
+        _key: string;
+      }>;
+      level?: number;
+      _type: 'block';
+      _key: string;
+    }> | null;
+    backgroundHeader: string | null;
+  } | null;
+  skillsList: Array<{
+    _key: string;
+    iconURL: string | null;
+    url: string | null;
+  }> | null;
+} | null;
+
 // Source: ./src/sanity/query/socialIconsQuery.ts
 // Variable: socialIconsQuery
 // Query: *[_type == "settings"][0]{    _id,    _type,    socialIcons[]{      _key,      "iconURL": icon.asset->url,      url    },  }
@@ -615,10 +721,13 @@ export type SocialIconsQueryResult = {
 declare module '@sanity/client' {
   interface SanityQueries {
     '\n  *[_type == "home"][0][\'aboutSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    content,\n    cta,\n    image,\n    imageCaption\n  }\n': AboutSectionQueryResult;
+    '\n  *[_type == "home"][0][\'educationSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    eduList[] {\n      _key,\n      degree,\n      graduationDate,\n      content,\n    },\n  }\n': EducationSectionQueryResult;
+    '\n  *[_type == "home"][0][\'experienceSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    experienceList[] {\n      _key,\n      jobPosition,\n      workStartDate,\n      workEndDate,\n      companyName,\n      "companyLogoURL": companyLogo.asset->url\n    },\n  }\n': ExperienceSectionQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    footer,\n  }\n': FooterInfoQueryResult;
     '\n  *[_type == "home"][0][\'heroSection\']{\n    _id,\n    sectionId,\n    image,\n    header,\n    profession\n  }\n': HeroSectionQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    title,\n    overview,\n    ogImage,\n    footer,\n  }\n': MetadataQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    logo,\n    menuItems[]{\n      _key,\n      _type == "anchorMenuItem" => {\n        _type,\n        "iconURL": icon.asset->url,\n        title,\n        anchorId\n      },\n      // fallback for references\n      _type != "anchorMenuItem" => {\n        "_type": @->_type,\n        "slug": @->slug.current,\n        "title": @->title\n      }\n    }\n  }\n': NavbarQueryResult;
+    '\n  *[_type == "home"][0][\'skillsSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    skillsList[] {\n      _key,\n      "iconURL": icon.asset->url,\n      url\n    },\n  }\n': SkillsSectionQueryResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    socialIcons[]{\n      _key,\n      "iconURL": icon.asset->url,\n      url\n    },\n  }\n': SocialIconsQueryResult;
   }
 }
