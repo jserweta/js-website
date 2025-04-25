@@ -3,7 +3,6 @@
 import {useNav} from '@/app/hooks/useNav';
 import type {PortableTextBlock} from 'next-sanity';
 import {AboutSectionQueryResult, SocialIconsQueryResult} from '../../../sanity.types';
-import {CustomPortableText} from '../CustomPortableText';
 import ImageWrapper from '../ImageWrapper';
 import SectionHeader from '../SectionHeader';
 import SocialMediaIcons from '../SocialMediaIcons';
@@ -26,11 +25,12 @@ export default function AboutMe({
       className="flex h-auto flex-col justify-center md:h-screen"
     >
       {mainHeader && backgroundHeader && (
-        <SectionHeader
-          header={mainHeader as PortableTextBlock[]}
-          backgroundHeader={backgroundHeader}
-          className="top-[5px] mb-12 text-[39px] sm:top-auto sm:text-[45px]"
-        />
+        <div>
+          <SectionHeader
+            header={mainHeader as PortableTextBlock[]}
+            backgroundHeader={backgroundHeader}
+          />
+        </div>
       )}
 
       <div className="flex flex-col-reverse items-center justify-center gap-16 md:flex-row">
