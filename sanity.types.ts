@@ -462,6 +462,41 @@ export type AboutSectionQueryResult = {
   imageCaption: string | null;
 } | null;
 
+// Source: ./src/sanity/query/contactSectionQuery.ts
+// Variable: contactSectionQuery
+// Query: *[_type == "home"][0]['contactSection']{    _id,    sectionId,    sectionHeader {      mainHeader,      backgroundHeader    },    content,    contactDetails[] {      _key,      "iconURL": icon.asset->url,      url    },  }
+export type ContactSectionQueryResult = {
+  _id: null;
+  sectionId: string | null;
+  sectionHeader: {
+    mainHeader: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: 'span';
+        _key: string;
+      }>;
+      style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+      listItem?: 'bullet' | 'number';
+      markDefs?: Array<{
+        href?: string;
+        _type: 'link';
+        _key: string;
+      }>;
+      level?: number;
+      _type: 'block';
+      _key: string;
+    }> | null;
+    backgroundHeader: string | null;
+  } | null;
+  content: string | null;
+  contactDetails: Array<{
+    _key: string;
+    iconURL: string | null;
+    url: string | null;
+  }> | null;
+} | null;
+
 // Source: ./src/sanity/query/ctaSectionQuery.ts
 // Variable: ctaSectionQuery
 // Query: *[_type == "home"][0]['resumeCTASection']{    _id,    ctaContent,    ctaButton,    buttonLink,    "downloadFile": downloadFile.asset->url  }
@@ -743,6 +778,7 @@ export type SocialIconsQueryResult = {
 declare module '@sanity/client' {
   interface SanityQueries {
     '\n  *[_type == "home"][0][\'aboutSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    content,\n    cta,\n    image,\n    imageCaption\n  }\n': AboutSectionQueryResult;
+    '\n  *[_type == "home"][0][\'contactSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    content,\n    contactDetails[] {\n      _key,\n      "iconURL": icon.asset->url,\n      url\n    },\n  }\n': ContactSectionQueryResult;
     '\n  *[_type == "home"][0][\'resumeCTASection\']{\n    _id,\n    ctaContent,\n    ctaButton,\n    buttonLink,\n    "downloadFile": downloadFile.asset->url\n  }\n': CtaSectionQueryResult;
     '\n  *[_type == "home"][0][\'educationSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    eduList[] {\n      _key,\n      degree,\n      graduationDate,\n      content,\n    },\n  }\n': EducationSectionQueryResult;
     '\n  *[_type == "home"][0][\'experienceSection\']{\n    _id,\n    sectionId,\n    sectionHeader {\n      mainHeader,\n      backgroundHeader\n    },\n    experienceList[] {\n      _key,\n      jobPosition,\n      workStartDate,\n      workEndDate,\n      companyName,\n      companyLogo,\n      "logoDimensions": companyLogo.asset->metadata.dimensions\n    },\n  }\n': ExperienceSectionQueryResult;
