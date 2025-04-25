@@ -22,7 +22,7 @@ export default function SectionHeader({
       </span>
       <div
         className={cn(
-          `font-futura absolute -bottom-1/2 left-0 z-10 mt-7 -translate-y-1/3 text-left text-[32px] font-[400] sm:text-[40px]`,
+          `font-futura absolute -bottom-1/2 left-0 z-10 mt-7 -translate-y-1/4 text-left text-[32px] font-[400] sm:text-[40px] md:-translate-y-1/6`,
           classMainHeader
         )}
       >

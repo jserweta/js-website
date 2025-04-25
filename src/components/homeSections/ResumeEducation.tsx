@@ -47,7 +47,7 @@ export default function ResumeEducation({data}: {data: EducationSectionQueryResu
             </div>
           </nav>
 
-          <div className="absolute top-[260px] left-[-40px] z-0 w-[calc(100%+80px)] border-t border-white after:absolute after:top-[-1px] after:left-full after:w-[calc((100vw-var(--site-max-width))/2)] after:border-t after:border-white after:content-[''] sm:top-[272px] md:top-[241px] xl:left-[-56px] xl:w-[calc(100%+112px)]"></div>
+          <div className="absolute top-[246px] left-[-40px] z-0 w-[calc(100%+80px)] border-t border-white after:absolute after:top-[-1px] after:left-full after:w-[calc((100vw-var(--site-max-width))/2)] after:border-t after:border-white after:content-[''] md:top-[214px] xl:top-[223px] xl:left-[-56px] xl:w-[calc(100%+112px)]"></div>
 
           <Swiper
             onSwiper={setEduSwiper}

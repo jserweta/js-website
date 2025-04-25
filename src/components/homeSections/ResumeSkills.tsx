@@ -27,7 +27,7 @@ export default function ResumeSkills({data}: {data: SkillsSectionQueryResult}) {
                 <ReactSVG
                   src={item.iconURL}
                   beforeInjection={(svg) => {
-                    svg.classList.add('hover:fill-primary', 'h-[42px]', 'w-[50px]', 'fill-white');
+                    svg.classList.add('h-[42px]', 'w-[50px]', 'fill-white');
                   }}
                 />
               )}
