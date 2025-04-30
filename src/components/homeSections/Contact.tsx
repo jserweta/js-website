@@ -4,6 +4,7 @@ import {useNav} from '@/app/hooks/useNav';
 import {PortableTextBlock} from 'next-sanity';
 import {ReactSVG} from 'react-svg';
 import {ContactSectionQueryResult} from '../../../sanity.types';
+import ContactForm from '../forms/ContactForm';
 import SectionHeader from '../SectionHeader';
 
 export default function Contact({data}: {data: ContactSectionQueryResult}) {
@@ -15,7 +16,7 @@ export default function Contact({data}: {data: ContactSectionQueryResult}) {
     <section
       id={sectionId || 'contact'}
       ref={sectionRef}
-      className="flex flex-col justify-center pb-14 text-sm xl:min-h-[60vh]"
+      className="flex flex-col justify-center pt-14 pb-20 text-sm xl:min-h-[60vh]"
     >
       {mainHeader && backgroundHeader && (
         <SectionHeader
@@ -26,11 +27,11 @@ export default function Contact({data}: {data: ContactSectionQueryResult}) {
       )}
 
       {content && contactDetails && contactDetails.length > 0 && (
-        <div className="contactSection__wrapper flex gap-16">
-          <div className="contactSection__info flex-1/3">
+        <div className="flex gap-16">
+          <div className="flex-1/3">
             <p className="mb-9 leading-5">{content}</p>
             {contactDetails.map((item, index) => (
-              <div className="detail mx-0 my-6 flex items-center gap-3.5" key={index}>
+              <div className="mx-0 my-6 flex items-center gap-3.5" key={index}>
                 {item.iconURL && (
                   <ReactSVG
                     src={item.iconURL}
@@ -49,7 +50,9 @@ export default function Contact({data}: {data: ContactSectionQueryResult}) {
               </div>
             ))}
           </div>
-          <div className="contactSection__form flex flex-2/3 flex-col">{/* <ContactForm /> */}</div>
+          <div className="flex-2/3">
+            <ContactForm />
+          </div>
         </div>
       )}
     </section>

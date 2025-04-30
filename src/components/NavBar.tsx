@@ -5,7 +5,6 @@ import {useMediaQuery} from 'react-responsive';
 import {NavbarQueryResult} from '../../sanity.types';
 import ImageWrapper from './ImageWrapper';
 import NavItem from './NavItem';
-import {OptimisticSortOrder} from './OptimisticSortOrder';
 
 export default function NavBar({data}: {data: NavbarQueryResult}) {
   const {logo, menuItems} = data ?? {};
