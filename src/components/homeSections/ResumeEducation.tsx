@@ -8,7 +8,6 @@ import {EducationSectionQueryResult} from '../../../sanity.types';
 import SectionHeader from '../SectionHeader';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import {cn} from '@/lib/utils/cn';
 
 export default function ResumeEducation({data}: {data: EducationSectionQueryResult}) {
   const {sectionHeader, eduList} = data || {};

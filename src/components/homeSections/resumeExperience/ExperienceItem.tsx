@@ -26,9 +26,7 @@ export default function ExperienceItem({
 
   let workPeriod = `${monthStart} ${yearStart}`;
   if (monthEnd !== monthStart || yearEnd !== yearStart) {
-    workEndDate != null
-      ? (workPeriod = `${workPeriod} - ${monthEnd} ${yearEnd}`)
-      : (workPeriod = `${workPeriod} - Present`);
+    workEndDate != null ? `${workPeriod} - ${monthEnd} ${yearEnd}` : `${workPeriod} - Present`;
   }
 
   return (

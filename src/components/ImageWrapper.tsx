@@ -1,9 +1,10 @@
 import {urlForImage} from '@/sanity/lib/utils';
 import {FitMode} from '@sanity/image-url/lib/types/types';
 import Image from 'next/image';
+import {Image as ImageType} from 'sanity';
 
 type ImageWrapperProps = {
-  'image'?: {asset?: any};
+  'image'?: Pick<ImageType, 'asset'>;
   'alt'?: string;
   'width'?: number;
   'height'?: number;

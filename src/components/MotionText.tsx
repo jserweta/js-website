@@ -20,7 +20,7 @@ export default function MotionText({profession}: {profession: string[]}) {
 
   return (
     <p className="m-0 h-[100px] text-[40px] md:h-auto">
-      I'm a <span className="text-primary" ref={motionTextRef}></span>
+      I&apos;m a <span className="text-primary" ref={motionTextRef}></span>
     </p>
   );
 }
