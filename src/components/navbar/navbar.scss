@@ -1,0 +1,228 @@
+@import "../../sass/variables";
+
+.navBar {
+  width: $nav-max-width;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  // left: calc((-100vh + $site-max-width) / 2);
+
+  // flex-direction: column;
+
+  &__wrapper {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    background-color: $color-box;
+  }
+
+  &__content {
+    padding: 20px;
+    gap: 20px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    color: $color-secondary;
+    transition: $transition-duration;
+    svg {
+      fill: $color-secondary;
+      padding-right: 20px;
+      transition: $transition-duration;
+    }
+    p {
+      display: inline-block;
+      margin: 0;
+      font-size: 20px;
+      line-height: 0;
+      font-family: "Futura";
+    }
+    &.active {
+      color: $color-white;
+      // font-weight: 500;
+      svg {
+        fill: $color-white;
+        stroke: $color-white;
+        stroke-width: 0.5px;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      color: $color-white;
+      svg {
+        fill: $color-white;
+      }
+
+      transform: translateX(5px) scale(105%);
+    }
+  }
+  &__logo {
+    width: 115px;
+    height: auto;
+    margin-bottom: 50px;
+  }
+  // .overflow {
+  //   background-color: $color-box;
+  //   // left: 0;
+  //   width: 100vw;
+  //   right: calc(100vw - $nav-max-width);
+  // }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: calc(100vw - $site-max-width / 2);
+    height: 100vh;
+    background: $color-box;
+    right: 0;
+  }
+}
+
+.mobileButton {
+  display: none;
+  width: 40px;
+  height: 35px;
+  cursor: pointer;
+  position: fixed;
+  z-index: 10;
+  left: 30px;
+  top: 30px;
+  .bar {
+    height: 3px;
+    border-radius: 10px;
+    width: 100%;
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    background-color: $color-white;
+    transition: $transition-duration;
+    &:nth-child(1) {
+      top: 0;
+    }
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 12px;
+    }
+    &:nth-child(4) {
+      top: 24px;
+    }
+  }
+  &.cross {
+    transform: translateX(135px);
+    .bar {
+      background-color: $color-accent;
+      &:nth-child(2) {
+        transform: rotate(45deg);
+      }
+      &:nth-child(1) {
+        top: 12px;
+        width: 0%;
+        left: 50%;
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+      &:nth-child(4) {
+        top: 12px;
+        width: 0%;
+        left: 50%;
+      }
+    }
+  }
+}
+
+@media (max-width: $xl) {
+  .navBar {
+    width: calc($site-max-width / 6);
+    transition: $transition-duration all;
+    // .overflow {
+    //   right: calc(100vw - ($site-max-width / 6));
+    // }
+  }
+}
+@media (max-width: $lg) {
+  .navBar {
+    width: 60px;
+    z-index: 4;
+    // &__wrapper {
+    //   transition: $transition-duration all;
+    //   // transform: translateX(0);
+    // }
+    &.showMobile {
+      // .navBar {
+      width: calc($site-max-width / 6);
+      // }
+
+      .navBar__logo {
+        display: block;
+      }
+      .navBar__item p {
+        display: block;
+      }
+      .navBar__item svg {
+        padding-right: 20px;
+      }
+    }
+
+    &__logo {
+      display: none;
+    }
+    &__item {
+      p {
+        display: none;
+      }
+      svg {
+        padding-right: 0;
+      }
+    }
+
+    // .overflow {
+    //   display: none;
+    // }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .mobileButton {
+    display: flex;
+  }
+
+  .navBar {
+    width: calc($site-max-width / 6);
+    display: none;
+
+    &__wrapper {
+      transition: $transition-duration all;
+      transform: translateX(calc($site-max-width / -6));
+    }
+
+    &__logo {
+      display: block;
+    }
+    &__item p {
+      display: block;
+    }
+    &__item svg {
+      padding-right: 20px;
+    }
+  }
+  .navBar.showMobile {
+    display: block;
+
+    .navBar__wrapper {
+      display: flex;
+      transform: translateX(0);
+    }
+  }
+}

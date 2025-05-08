@@ -1,0 +1,94 @@
+$site-max-width: 1366px;
+$nav-max-width: calc($site-max-width / 4);
+$transition-duration: 0.22s;
+
+// Colors
+$color-accent: #f6483b;
+$color-secondary: #a6a6a6;
+$color-secondary-darker: #202020;
+$color-box: #111111;
+$color-main-background: #010101;
+$color-white: #ffffff;
+
+// Breakpoints
+$xxl: $site-max-width;
+$xl: 1200px;
+$lg: 992px;
+$md: 768px;
+$sm: 576px;
+$xs: 575.98px;
+
+// Fonts
+@font-face {
+  font-family: "Futura";
+  src: local("Futura"), url("../fonts/Futura-Med.woff2") format("woff2"),
+    url("../fonts/Futura-Med.woff") format("woff"),
+    url("../fonts/Futura-Med.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Futura";
+  src: local("Futura"), url("../fonts/Futura-Bol.woff2") format("woff2"),
+    url("../fonts/Futura-Bol.woff") format("woff"),
+    url("../fonts/Futura-Bol.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Futura";
+  src: local("Futura"), url("../fonts/Futura-Boo.woff2") format("woff2"),
+    url("../fonts/Futura-Boo.woff") format("woff"),
+    url("../fonts/Futura-Boo.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url("../fonts/Montserrat-Light.woff2") format("woff2"),
+    url("../fonts/Montserrat-Light.woff") format("woff"),
+    url("../fonts/Montserrat-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url("../fonts/Montserrat-Medium.woff2") format("woff2"),
+    url("../fonts/Montserrat-Medium.woff") format("woff"),
+    url("../fonts/Montserrat-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url("../fonts/Montserrat-Bold.woff2") format("woff2"),
+    url("../fonts/Montserrat-Bold.woff") format("woff"),
+    url("../fonts/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url("../fonts/Montserrat-Black.woff2") format("woff2"),
+    url("../fonts/Montserrat-Black.woff") format("woff"),
+    url("../fonts/Montserrat-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

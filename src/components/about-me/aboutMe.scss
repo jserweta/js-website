@@ -1,0 +1,129 @@
+@import "../../sass/variables";
+
+.aboutMeSection {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .sectionHeader {
+    margin-bottom: 50px;
+    &__background {
+      top: -10px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 65px;
+    font-size: 14px;
+    line-height: 1.5;
+
+    p {
+      margin-bottom: 50px;
+    }
+
+    .accentHighlight {
+      margin: 0;
+      font-size: 25px;
+    }
+  }
+
+  &__cta {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 45px;
+  }
+
+  &__imageWrapper {
+    position: relative;
+  }
+
+  &__imageCaption {
+    width: 172px;
+    height: 166px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    z-index: 1;
+    left: -15%;
+    bottom: -20%;
+    h3 {
+      font-family: "Futura";
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      position: relative;
+      text-align: center;
+      margin: 0;
+      span {
+        font-size: 21px;
+        font-weight: 400;
+      }
+    }
+    &::after {
+      content: "";
+      background-image: url("../../img/background-path.svg");
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  }
+  &__image {
+    width: 285px;
+    height: auto;
+  }
+
+  @media (max-width: $md) {
+    height: auto;
+    &__wrapper {
+      flex-direction: column-reverse;
+    }
+    &__image {
+      width: 100%;
+      height: auto;
+    }
+
+    &__imageCaption {
+      bottom: -10%;
+      left: -5%;
+    }
+
+    &__content {
+      margin-top: 40px;
+    }
+    .sectionHeader {
+      &__background {
+        top: 0;
+      }
+    }
+    &__cta {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  @media (max-width: $sm) {
+    padding-top: 100px;
+    .sectionHeader {
+      &__background {
+        font-size: 39px;
+        top: 5px;
+      }
+    }
+    &__imageCaption {
+      bottom: -20%;
+      &::after {
+        transform: scale(0.9);
+      }
+    }
+  }
+}

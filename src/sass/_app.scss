@@ -1,0 +1,54 @@
+@import "./variables";
+
+.App {
+  margin: 0 auto;
+  position: relative;
+  background-color: $color-main-background;
+
+  .mainContent {
+    z-index: 2;
+    position: relative;
+    padding: 0 60px;
+    margin-left: $nav-max-width;
+    background-color: $color-main-background;
+  }
+  // .overMain {
+  //   background-color: $color-main-background;
+  //   right: 0;
+  //   width: 100%;
+  //   z-index: -2;
+  // }
+  @media (max-width: $xxl) {
+    .mainContent {
+      padding: 0 40px;
+    }
+  }
+  @media (max-width: $xl) {
+    .mainContent {
+      margin-left: calc($site-max-width / 6);
+    }
+  }
+  @media (max-width: $lg) {
+    .mainContent {
+      margin-left: 60px;
+      // .overflow {
+      //   width: 100%;
+      // }
+    }
+  }
+  @media (max-width: $sm) {
+    .mainContent {
+      margin-left: 0;
+    }
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: calc(100vw - $site-max-width / 2);
+    height: 100%;
+    background: $color-main-background;
+    right: calc((100vw - $site-max-width) / -2);
+  }
+}
