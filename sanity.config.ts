@@ -3,6 +3,7 @@
 /**
  * This configuration is used to for the Sanity Studio that’s mounted on the `\src\app\studio\[[...tool]]\page.tsx` route
  */
+import {apiVersion, dataset, projectId} from '@/sanity/lib/env';
 import * as resolve from '@/sanity/plugins/resolve';
 import {pageStructure, singletonPlugin} from '@/sanity/plugins/settings';
 import aboutSection from '@/sanity/schemas/homeSections/aboutSection';
@@ -20,7 +21,6 @@ import {visionTool} from '@sanity/vision';
 import {defineConfig} from 'sanity';
 import {presentationTool} from 'sanity/presentation';
 import {structureTool} from 'sanity/structure';
-import {apiVersion, dataset, projectId} from './src/sanity/lib/env';
 
 export default defineConfig({
   basePath: '/studio',
