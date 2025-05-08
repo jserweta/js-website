@@ -20,11 +20,14 @@ export function urlForOpenGraphImage(image: Image | null | undefined) {
   return urlForImage(image)?.width(1200).height(627).fit('crop').url();
 }
 
-// slug?: string | null
-export function resolveHref(documentType?: string): string | undefined {
+export function resolveHref(documentType?: string, slug?: string | null): string | undefined {
   switch (documentType) {
     case 'home':
       return '/';
+    case 'page':
+      return slug ? `/${slug}` : undefined;
+    case 'project':
+      return slug ? `/projects/${slug}` : undefined;
     default:
       console.warn('Invalid document type:', documentType);
       return undefined;
